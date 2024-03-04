@@ -21,6 +21,7 @@
       "url": "mailto:info@greip.io"
     }
   ],
+  "backgroundImage": "/images/background-light.png",
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://greip.io/dashboard/Home"
