@@ -1,0 +1,98 @@
+---
+title: "Profanity Detection"
+description: "This method can be used to detect abuse of your website/app. It's a great way to know more about your user inputs and whether they contain profanity (bad words) or not before releasing them to the public."
+api: "GET /badWords"
+---
+
+### Query Parameters
+
+<ParamField
+  query="text"
+  type="string"
+  placeholder="The text"
+  required
+>
+  The text you want to filter
+
+Sample value: `GB`
+
+</ParamField>
+
+<ParamField
+  query="scoreOnly"
+  type="string"
+  default="no"
+  placeholder="The value"
+>
+  Returns only the score of the text and whether it's safe or not.
+
+Expected values: `yes`, or `no`.
+
+</ParamField>
+
+<ParamField
+  query="listBadWords"
+  type="string"
+  default="no"
+  placeholder="The value"
+>
+  Used to list the bad words in an array.
+
+Expected values: `yes`, or `no`.
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, or `CSV`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<Note>
+This method returns a score for the text you pass.
+
+We classify profanity into 4 different level. The first level contains the most risky words and phrases (risky). The second level contains the medium-risk words and phrases. Whereas, the third level contains the low-risk words.
+
+When you use the API, the response will the determine the score of the text you passed as follows:
+
+- `riskScore = 0` means that this text is completely safe.
+- `riskScode = 1` means that this is a high-risk text.
+- `riskScode = 2` means that this is a medium-risk text.
+- `riskScode = 3` means that this is a low-risk text.
+
+</Note>

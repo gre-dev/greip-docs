@@ -1,0 +1,148 @@
+---
+title: "BIN/IIN Lookup"
+description: "By using this module, you can easily fetch the complete data associated with a debit/credit card, including its `type` (`debit` or `credit`), `schema` (Visa, Mastercard, etc.), `brand` (gold, platinum, etc.), `bank` details, and more. This information can be used for a variety of purposes, such as verifying a customer's payment details, detecting fraudulent transactions, and providing personalised services to your users.
+"
+api: "GET /BINLookup"
+---
+
+### Query Parameters
+
+<ParamField
+  query="bin"
+  type="string"
+  placeholder="The BIN"
+  required
+>
+  The BIN/IIN of the card (min: 6 digits).
+
+Sample value: `456789`, `456789XXXXXX1234`, or `4567891234567890`.
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="userID"
+  type="string"
+  placeholder="User Identifier"
+>
+  The userID command can be used to identify requests sent by specific users to monitor in the [Events Page](/dashboard-guides/monitoring-capabilities/real-time-threat-monitoring).
+
+Expected values: email address, phone number, user id, name, etc.
+
+For more information please refer to [User Identifier](/options/user-identifier.mdx).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "reason": "",
+    "isValid": true,
+    "info": {
+      "scheme": {
+        "name": "Visa",
+        "coName": "Mada",
+        "isLuna": true,
+        "isPrepaid": false,
+        "isCommercial": false,
+        "type": "debit",
+        "brand": "Traditional",
+        "currency": "SAR"
+      },
+      "detected_digits": "4",
+      "syntax": {
+        "gaps": [4, 8, 12],
+        "lengths": [16, 18, 19],
+        "code": {
+          "name": "CVV",
+          "size": 3
+        }
+      },
+      "bank": {
+        "id": "588847",
+        "identifier": "80",
+        "name": "AL RAJHI BANKING AND INVESTMENT CORP.",
+        "city": "Riyadh",
+        "url": "https://www.alrajhibank.com.sa",
+        "phone": "+96611211600",
+        "logo": "https://greip.io/img/banks/al-rajhi.jpg",
+        "latitude": "25",
+        "longitude": "45"
+      },
+      "country": {
+        "alpha2": "SA",
+        "name": "Saudi Arabia",
+        "code": "966",
+        "numeric": "682",
+        "emoji": "🇸🇦",
+        "continent": "Asia",
+        "languageCode": "ar",
+        "languageNative": "العربية"
+      }
+    }
+  },
+  "status": "success",
+  "executionTime": 2
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+## Overview
+
+The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
+
+One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
+
+For example, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.

@@ -1,0 +1,146 @@
+---
+title: "Phone Number Validation"
+description: "This method can be used as an extra-layer of your system for validating phone numbers. It validates phone number syntax and valid-possibility."
+api: "GET /validatePhone"
+---
+
+### Query Parameters
+
+<ParamField
+  query="phone"
+  type="string"
+  placeholder="Phone number"
+  required
+>
+  The phone command is used to specify the phone number you want to validate.
+
+Expected values: a phone number
+
+Sample value: `+12121234567`, `0012121234567`, `12121234567`, or `2121234567`
+
+</ParamField>
+
+<ParamField
+  query="countryCode"
+  type="string"
+  placeholder="Phone number"
+  required
+>
+  The `ISO 3166-1 alpha-2` format of the country code of the phone number. [Learn more](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+Sample value: `US`
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="userID"
+  type="string"
+  placeholder="User Identifier"
+>
+  The userID command can be used to identify requests sent by specific users to monitor in the [Events Page](/dashboard-guides/monitoring-capabilities/real-time-threat-monitoring).
+
+Expected values: email address, phone number, user id, name, etc.
+
+For more information please refer to [User Identifier](/options/user-identifier.mdx).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "carrier": "",
+    "reason": "Invalid phone number structure.",
+    "isValid": false
+  },
+  "status": "success",
+  "executionTime": 1
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+## Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="carrier" type="string" required>
+      Carrier name of the phone number.
+    </ResponseField>
+    <ResponseField name="reason" type="string" required>
+      The reason behind considering this phone number as risky.
+
+      **Note:** The value of this property will be empty if the `isValid` is `true`.
+    </ResponseField>
+    <ResponseField name="isValid" type="boolean" required>
+      A boolean value that you can rely on to determine if the phone number is 100% safe & valid or not.
+    </ResponseField>
+
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    The response status.
+
+    Expected values: `success`, or `error`.
+
+  </ResponseField>
+  <ResponseField name="executionTime" type="integer" required>
+    Time spent in milliseconds to process the data.
+  </ResponseField>
+</ResponseField>
+
+## What can I expect from this API?
+
+- Detection of disposable email addresses (also known as Temporary Email Addresses)
+- Testing the email service provider of a given email address
+- Validation of email syntax

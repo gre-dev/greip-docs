@@ -1,0 +1,498 @@
+---
+title: "GeoIP"
+description: "You can use this API to retrieve the IP Address of the visitor/user with its full information. This can be done just by using the GeoIP method in the request."
+api: "GET /GeoIP"
+---
+
+### Query Parameters
+
+<ParamField
+  query="params"
+  type="string"
+  placeholder="The modules you want to use"
+>
+  The params command can be used to specify the required modules you want to get
+  in the response.
+
+Expected values: `security`, `currency`, `timezone`, `location`, and/or `device`
+
+Sample value: `security,timezone,currency`
+
+For more information please refer to [Customize response modules](/options/customize-modules).
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="lang"
+  type="string"
+  default="EN"
+  placeholder="Response language"
+>
+  The lang command is used to get a response in a specific language.
+
+Expected values: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, or `RU`
+
+For more information please refer to [Localization](/options/localization).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="userID"
+  type="string"
+  placeholder="User Identifier"
+>
+  The userID command can be used to identify requests sent by specific users to monitor in the [Events Page](/dashboard-guides/monitoring-capabilities/real-time-threat-monitoring).
+
+Expected values: email address, phone number, user id, name, etc.
+
+For more information please refer to [User Identifier](/options/user-identifier.mdx).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "ip": "165.227.149.217",
+    "ipType": "IPv4",
+    "IPNumber": 2783155673,
+    "continentName": "Europe",
+    "continentCode": "EU",
+    "countryCode": "DE",
+    "continentGeoNameID": 6255148,
+    "countryName": "Germany",
+    "countryGeoNameID": 2921044,
+    "regionName": "Hessen",
+    "cityName": "Frankfurt am Main",
+    "zipCode": "65931",
+    "latitude": "50.115520",
+    "longitude": "8.684170",
+    "location": {
+      "capital": "Berlin",
+      "population": 83783942,
+      "language": { "name": "German", "code": "de", "native": "Deutsch" },
+      "flag": {
+        "emoji": "🇩🇪",
+        "unicode": "U+1F1E9 U+1F1EA",
+        "png": {
+          "1000px": "https://www.gredev.io/img/flags/png1000px/de.png",
+          "250px": "https://www.gredev.io/img/flags/png250px/de.png",
+          "100px": "https://www.gredev.io/img/flags/png100px/de.png"
+        },
+        "svg": "https://www.gredev.io/img/flags/svg/de.svg"
+      },
+      "phoneCode": "49",
+      "countryIsEU": true,
+      "countryNeighbours": "CH,PL,NL,DK,BE,CZ,LU,FR,AT",
+      "tld": ".de"
+    },
+    "currency": {
+      "currencyName": "Euro",
+      "currencyCode": "EUR",
+      "currencySymbol": "€"
+    },
+    "asn": {
+      "asn": "AS14061",
+      "name": "DIGITALOCEAN-ASN",
+      "org": "DigitalOcean, LLC",
+      "phone": "+1-347-875-6044",
+      "email": "noc@digitalocean.com",
+      "domain": "digitalocean.com",
+      "created": "2012-05-14",
+      "type": "hosting"
+    },
+    "timezone": {
+      "name": "Europe/Berlin",
+      "abbreviation": "CET",
+      "offset": 3600,
+      "currentTime": "03:33:13",
+      "currentTimestamp": 1709519593,
+      "isDST": false,
+      "sunInfo": {
+        "sunset": "18:14:11",
+        "sunrise": "06:59:29",
+        "transit": "12:36:50",
+        "civilTwilightBegin": "06:28:47",
+        "civilTwilightEnd": "18:44:53",
+        "nauticalTwilightBegin": "05:51:20",
+        "nauticalTwilightEnd": "19:22:21",
+        "astronomicalTwilightBegin": "05:13:27",
+        "astronomicalTwilightEnd": "20:00:13",
+        "dayLength": "11:14:42"
+      }
+    },
+    "security": {
+      "isProxy": true,
+      "proxyType": "VPN",
+      "isTor": false,
+      "isBot": false,
+      "isRelay": false,
+      "isHosting": true
+    },
+    "device": {
+      "isMobile": false,
+      "type": "desktop",
+      "OS": {
+        "type": "desktop",
+        "name": "MacOS",
+        "family": "macintosh",
+        "version": "Big Sur",
+        "title": "MacOS Big Sur",
+        "64bits_mode": 1
+      },
+      "browser": {
+        "name": "Safari",
+        "version": 17.2,
+        "versionMajor": 1,
+        "title": "Safari 17.2"
+      }
+    }
+  },
+  "status": "success",
+  "executionTime": 4
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+## Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="ip" type="string" required>
+      IP address you're looking up.
+    </ResponseField>
+    <ResponseField name="ipType" type="string" required>
+      Type of IP address (`IPv4`, or `IPv6`).
+    </ResponseField>
+    <ResponseField name="IPNumber" type="integer" required>
+      Numeric representation of the IP address.
+    </ResponseField>
+    <ResponseField name="continentName" type="string" required>
+      Name of the continent where the IP address is.
+    </ResponseField>
+    <ResponseField name="continentCode" type="string" required>
+      Code representation of the continent.
+    </ResponseField>
+    <ResponseField name="countryCode" type="string" required>
+      Code representation of the country in `ISO-3166` format.
+    </ResponseField>
+    <ResponseField name="continentGeoNameID" type="integer" required>
+      GeoName ID of the continent.
+    </ResponseField>
+    <ResponseField name="countryName" type="string" required>
+      Name of the country.
+    </ResponseField>
+    <ResponseField name="countryGeoNameID" type="integer" required>
+      GeoName ID of the country.
+    </ResponseField>
+    <ResponseField name="regionName" type="string" required>
+      Name of the region.
+    </ResponseField>
+    <ResponseField name="cityName" type="string" required>
+      Name of the city.
+    </ResponseField>
+    <ResponseField name="zipCode" type="string" required>
+      ZIP code of the location where the IP address belong.
+    </ResponseField>
+    <ResponseField name="latitude" type="string" required>
+      Latitude coordinate of the location.
+    </ResponseField>
+    <ResponseField name="longitude" type="string" required>
+      Longitude coordinate of the location.
+    </ResponseField>
+    <ResponseField name="location" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="capital" type="string" required>
+          Capital city of the country.
+        </ResponseField>
+        <ResponseField name="population" type="integer" required>
+          Population of the country.
+        </ResponseField>
+        <ResponseField name="language" type="object" required>
+          <Expandable title="details">
+            <ResponseField name="name" type="string" required>
+              Official language of the country.
+            </ResponseField>
+            <ResponseField name="code" type="string" required>
+              Language code in `ISO-639` format.
+            </ResponseField>
+            <ResponseField name="native" type="string" required>
+              Native name of the language.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="flag" type="object" required>
+          <Expandable title="details">
+            <ResponseField name="emoji" type="string" required>
+              Flag emoji representation.
+            </ResponseField>
+            <ResponseField name="unicode" type="string" required>
+              Flag Unicode representation.
+            </ResponseField>
+            <ResponseField name="png" type="object" required>
+              <Expandable title="images">
+                <ResponseField name="1000px" type="string" required>
+                  URL to 1000px PNG flag.
+                </ResponseField>
+                <ResponseField name="250px" type="string" required>
+                  URL to 250px PNG flag.
+                </ResponseField>
+                <ResponseField name="100px" type="string" required>
+                  URL to 100px PNG flag.
+                </ResponseField>
+              </Expandable>
+            </ResponseField>
+            <ResponseField name="svg" type="string" required>
+              URL to SVG flag.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="phoneCode" type="string" required>
+          International dialing code for the country.
+        </ResponseField>
+        <ResponseField name="countryIsEU" type="boolean" required>
+          Indicates if the country is in the EU.
+        </ResponseField>
+        <ResponseField name="countryNeighbours" type="string" required>
+          List of neighboring countries' codes.
+        </ResponseField>
+        <ResponseField name="tld" type="string" required>
+          Top-level domain of the country.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="currency" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="currencyName" type="string" required>
+          Name of the currency.
+        </ResponseField>
+        <ResponseField name="currencyCode" type="string" required>
+          Currency code in `ISO-4217` format.
+        </ResponseField>
+        <ResponseField name="currencySymbol" type="string" required>
+          Symbol of the currency.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="asn" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="asn" type="string" required>
+          Autonomous System Number.
+        </ResponseField>
+        <ResponseField name="name" type="string" required>
+          Name of the ASN.
+        </ResponseField>
+        <ResponseField name="org" type="string" required>
+          Organization associated with the ASN.
+        </ResponseField>
+        <ResponseField name="phone" type="string" required>
+          Phone contact for the ASN.
+        </ResponseField>
+        <ResponseField name="email" type="string" required>
+          Email contact for the ASN.
+        </ResponseField>
+        <ResponseField name="domain" type="string" required>
+          Domain associated with the ASN.
+        </ResponseField>
+        <ResponseField name="created" type="string" required>
+          Date of ASN creation.
+        </ResponseField>
+        <ResponseField name="type" type="string" required>
+          Type of service the ASN provides.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="timezone" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="name" type="string" required>
+          Timezone name.
+        </ResponseField>
+        <ResponseField name="abbreviation" type="string" required>
+          Timezone abbreviation.
+        </ResponseField>
+        <ResponseField name="offset" type="integer" required>
+          Timezone offset from UTC.
+        </ResponseField>
+        <ResponseField name="currentTime" type="string" required>
+          Current time in the timezone.
+        </ResponseField>
+        <ResponseField name="currentTimestamp" type="integer" required>
+          Current timestamp in the timezone.
+        </ResponseField>
+        <ResponseField name="isDST" type="boolean" required>
+          Indicates if Daylight Saving Time is active.
+        </ResponseField>
+        <ResponseField name="sunInfo" type="object" required>
+          <Expandable title="details">
+            <ResponseField name="sunset" type="string" required>
+              Sunset time.
+            </ResponseField>
+            <ResponseField name="sunrise" type="string" required>
+              Sunrise time.
+            </ResponseField>
+            <ResponseField name="transit" type="string" required>
+              Solar transit time.
+            </ResponseField>
+            <ResponseField name="civilTwilightBegin" type="string" required>
+              Civil twilight begin time.
+            </ResponseField>
+            <ResponseField name="civilTwilightEnd" type="string" required>
+              Civil twilight end time.
+            </ResponseField>
+            <ResponseField name="nauticalTwilightBegin" type="string" required>
+              Nautical twilight begin time.
+            </ResponseField>
+            <ResponseField name="nauticalTwilightEnd" type="string" required>
+              Nautical twilight end time.
+            </ResponseField>
+            <ResponseField
+              name="astronomicalTwilightBegin"
+              type="string"
+              required
+            >
+              Astronomical twilight begin time.
+            </ResponseField>
+            <ResponseField
+              name="astronomicalTwilightEnd"
+              type="string"
+              required
+            >
+              Astronomical twilight end time.
+            </ResponseField>
+            <ResponseField name="dayLength" type="string" required>
+              Length of the day.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="security" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="isProxy" type="boolean" required>
+          Indicates if the IP address is a proxy service.
+        </ResponseField>
+        <ResponseField name="proxyType" type="string" required>
+          Type of proxy used.
+        </ResponseField>
+        <ResponseField name="isTor" type="boolean" required>
+          Indicates if accessed through Tor network.
+        </ResponseField>
+        <ResponseField name="isBot" type="boolean" required>
+          Indicates if the user is a bot.
+        </ResponseField>
+        <ResponseField name="isRelay" type="boolean" required>
+          Indicates if it's a Apple's Private Relay connection.
+        </ResponseField>
+        <ResponseField name="isHosting" type="boolean" required>
+          Indicates if the IP address belong to a hosting provider.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="device" type="object" required>
+      <Expandable title="details">
+        <ResponseField name="isMobile" type="boolean" required>
+          Indicates if the device is a mobile device.
+        </ResponseField>
+        <ResponseField name="type" type="string" required>
+          Type of device.
+        </ResponseField>
+        <ResponseField name="OS" type="object" required>
+          <Expandable title="details">
+            <ResponseField name="type" type="string" required>
+              Type of operating system.
+            </ResponseField>
+            <ResponseField name="name" type="string" required>
+              Name of the operating system.
+            </ResponseField>
+            <ResponseField name="family" type="string" required>
+              Family of the operating system.
+            </ResponseField>
+            <ResponseField name="version" type="string" required>
+              Version of the operating system.
+            </ResponseField>
+            <ResponseField name="title" type="string" required>
+              Title of the operating system.
+            </ResponseField>
+            <ResponseField name="64bits_mode" type="integer" required>
+              Indicates 64-bit mode (1 for true, 0 for false).
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="browser" type="object" required>
+          <Expandable title="details">
+            <ResponseField name="name" type="string" required>
+              Name of the browser.
+            </ResponseField>
+            <ResponseField name="version" type="number" required>
+              Version of the browser.
+            </ResponseField>
+            <ResponseField name="versionMajor" type="integer" required>
+              Major version of the browser.
+            </ResponseField>
+            <ResponseField name="title" type="string" required>
+              Title of the browser.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    Response status (success/error).
+  </ResponseField>
+  <ResponseField name="executionTime" type="integer" required>
+    Time taken to process the data (in milliseconds).
+  </ResponseField>
+</ResponseField>

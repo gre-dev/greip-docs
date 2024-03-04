@@ -1,0 +1,147 @@
+---
+title: "Country Data"
+description: "This method can help you retrieve information about the country by passing the Country Code to the request."
+api: "GET /Country"
+---
+
+### Query Parameters
+
+<ParamField
+  query="CountryCode"
+  type="string"
+  placeholder="The Country code"
+  required
+>
+  The `ISO 3166-1 alpha-2` format of the country code. [Learn more](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+Sample value: `GB`
+
+</ParamField>
+
+<ParamField
+  query="params"
+  type="string"
+  placeholder="The params you want to use"
+>
+  The param command is used to determine the data you need in the response.
+
+Expected values: `language`, `flag`, `currency`, and/or `timezone`.
+
+Sample value: `language,currency,timezone`
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "countryCode": "US",
+    "countryName": "United States",
+    "countryGeoNameID": 6252001,
+    "capital": "Washington, D.C.",
+    "population": 331000000,
+    "phoneCode": "1",
+    "currency": {
+      "currencyName": "United States Dollar",
+      "currencyCode": "USD",
+      "currencySymbol": "$"
+    },
+    "language": {
+      "name": "Portuguese",
+      "code": "pt",
+      "native": "Português"
+    },
+    "timezone": {
+      "name": "America/Adak",
+      "abbreviation": "HST",
+      "offset": -36000,
+      "currentTime": "11:51:19",
+      "currentTimestamp": 1643406679,
+      "isDST": false,
+      "sunInfo": {
+        "sunset": "08:17:34",
+        "sunrise": "20:08:16",
+        "transit": "02:12:55",
+        "civilTwilightBegin": "19:47:39",
+        "civilTwilightEnd": "08:38:10",
+        "nauticalTwilightBegin": "19:22:22",
+        "nauticalTwilightEnd": "09:03:28",
+        "astronomicalTwilightBegin": "18:57:01",
+        "astronomicalTwilightEnd": "09:28:49",
+        "dayLength": "11:50:42"
+      }
+    },
+    "flag": {
+      "emoji": "🇺🇸",
+      "unicode": "U+1F1FA U+1F1F8",
+      "png": {
+        "1000px": "https://www.gredev.io/img/flags/png1000px/us.png",
+        "250px": "https://www.gredev.io/img/flags/png250px/us.png",
+        "100px": "https://www.gredev.io/img/flags/png100px/us.png"
+      },
+      "svg": "https://www.gredev.io/img/flags/svg/us.svg"
+    },
+    "countryIsEU": false,
+    "countryNeighbours": "CA,MX,CU",
+    "tld": ".us",
+    "continentName": "North America",
+    "continentCode": "NA",
+    "continentGeoNameID": 6255149
+  },
+  "status": "success",
+  "executionTime": 0
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>

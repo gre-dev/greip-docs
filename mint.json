@@ -1,51 +1,64 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Greip API Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#008CFF",
+    "light": "#008CFF",
+    "dark": "#008CFF",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#008CFF",
+      "to": "#008CFF"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:info@greip.io"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://greip.io/dashboard/Home"
   },
   "tabs": [
     {
+      "name": "Dashboard Guides",
+      "url": "dashboard-guides"
+    },
+    {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Packages & Libraries",
+      "url": "packages-and-libraries"
     }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "name": "Integrations",
+      "icon": "gears",
+      "url": "https://greip.io/integrations/all"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "Changelog",
+      "icon": "clock-rotate-left",
+      "url": "https://changelog.greip.io"
     },
     {
-      "name": "Blog",
+      "name": "Articles",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://greip.io/blog"
+    },
+    {
+      "name": "FAQ",
+      "icon": "circle-question",
+      "url": "https://greip.io/faq"
     }
   ],
   "navigation": [
@@ -53,39 +66,109 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "authentication",
+        "https-support",
+        "error-codes",
+        "usage-limits"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Options",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "options/customize-modules",
+        "options/response-format",
+        "options/localization",
+        "options/development-environment",
+        "options/user-identifier",
+        "options/jsonp-callback"
+      ]
+    },
+    {
+      "group": "Dashboard Guides",
+      "pages": [
+        "dashboard-guides/account-management/webhooks",
+        "dashboard-guides/account-management/obtaining-api-key",
+        "dashboard-guides/account-management/protecting-your-api-key",
+        "dashboard-guides/account-management/upgrading-your-account"
+      ]
+    },
+    {
+      "group": "Affiliate Program",
+      "pages": [
+        "dashboard-guides/affiliates-program/becoming-affiliate-partner",
+        "dashboard-guides/affiliates-program/payout-settings"
+      ]
+    },
+    {
+      "group": "Monitoring Capabilities",
+      "pages": [
+        "dashboard-guides/monitoring-capabilities/subscription-usage-tracking",
+        "dashboard-guides/monitoring-capabilities/real-time-threat-monitoring"
       ]
     },
     {
       "group": "API Documentation",
+      "pages": ["api-reference/introduction"]
+    },
+    {
+      "group": "Packages & Libraries",
       "pages": [
-        "api-reference/introduction"
+        "packages-and-libraries/list-of-packages-and-libraries",
+        "packages-and-libraries/postman-collection"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "IP Gelocation & VPN/Proxy Detection",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/ip-geolocation/geoip",
+        "api-reference/endpoint/ip-geolocation/ip-lookup",
+        "api-reference/endpoint/ip-geolocation/bulk-lookup",
+        "api-reference/endpoint/ip-geolocation/asn-lookup",
+        "api-reference/endpoint/ip-geolocation/free-get-ip-method"
+      ]
+    },
+    {
+      "group": "Payment Fraud Detection & Prevention",
+      "pages": [
+        "api-reference/endpoint/payment-fraud/payment-fraud-prevention",
+        "api-reference/endpoint/payment-fraud/bin-lookup",
+        "api-reference/endpoint/payment-fraud/iban-validation"
+      ]
+    },
+    {
+      "group": "Data Validation",
+      "pages": [
+        "api-reference/endpoint/data-validation/email-lookup",
+        "api-reference/endpoint/data-validation/phone-lookup"
+      ]
+    },
+    {
+      "group": "Other Services",
+      "pages": [
+        "api-reference/endpoint/other-services/country-data",
+        "api-reference/endpoint/other-services/profanity-detection"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+    "twitter": "https://twitter.com/greipio",
+    "github": "https://github.com/Greipio",
+    "linkedin": "https://www.linkedin.com/company/greip",
+    "website": "https://greip.io"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": false,
+    "raiseIssue": false
+  },
+  "api": {
+    "baseUrl": "https://gregeoip.com",
+    "auth": {
+      "method": "bearer"
+    },
+    "playground": {
+      "mode": "show"
+    }
+  },
+  "openapi": "https://greip.io/OpenAPI.json"
 }

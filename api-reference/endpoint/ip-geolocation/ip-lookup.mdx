@@ -1,0 +1,105 @@
+---
+title: "IP Lookup"
+description: "You can use this API to retrieve the information of a given IP address."
+api: "GET /IPLookup"
+---
+
+### Query Parameters
+
+<ParamField
+  query="ip"
+  type="string"
+  placeholder="IP address"
+  required
+>
+  The ip command is used to specify the IP address you want to lookup.
+
+Expected values: an IP address (IPv4 or IPv6)
+
+Sample value: `1.1.1.1`
+
+</ParamField>
+
+<ParamField
+  query="params"
+  type="string"
+  placeholder="The modules you want to use"
+>
+  The params command can be used to specify the required modules you want to get
+  in the response.
+
+Expected values: `security`, `currency`, `timezone`, `location`, and/or `device`
+
+Sample value: `security,timezone,currency`
+
+For more information please refer to [Customize response modules](/options/customize-modules).
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="lang"
+  type="string"
+  default="EN"
+  placeholder="Response language"
+>
+  The lang command is used to get a response in a specific language.
+
+Expected values: `EN`, `AR`, `DE`, `FR`, `ES`, `JA`, `ZH`, or `RU`
+
+For more information please refer to [Localization](/options/localization).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="userID"
+  type="string"
+  placeholder="User Identifier"
+>
+  The userID command can be used to identify requests sent by specific users to monitor in the [Events Page](/dashboard-guides/monitoring-capabilities/real-time-threat-monitoring).
+
+Expected values: email address, phone number, user id, name, etc.
+
+For more information please refer to [User Identifier](/options/user-identifier.mdx).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>

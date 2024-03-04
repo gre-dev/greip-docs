@@ -1,0 +1,40 @@
+---
+title: "JSONP Callback"
+icon: "6"
+---
+
+Our API supports JSONP (JavaScript Object Notation with Padding) Callbacks, which allows you to specify the function name you want to use and have the API response wrapped inside that function. This feature is useful when you need to perform cross-domain AJAX requests or when you want to improve the performance of your application by caching the response.
+
+To use JSONP Callbacks, simply add the "callback" parameter to your API request with the name of the function you want to use. The API response will be wrapped inside this function name, making it available to your JavaScript code.
+
+Here is an example of how to use JSONP Callbacks with our API:
+
+```
+https://gregeoip.com/GeoIP?key=12345&callback=myFunctionName
+```
+
+In this example, "myFunction" is the name of the function that will be used to wrap the API response. The response will be sent in JSONP format, with the function name added before the JSON data.
+
+## Sample Response
+
+```javascript
+myFunctionName({
+    "status": "success",
+    "data": {
+        "ip": "68.235.60.237",
+        "ipType": "ipv4",
+        "IPNumber": 1156267245,
+        "continentName": "North America"
+        "continentCode": "NA",
+        "countryCode": "US",
+        "countryName": "United States of America"
+        "regionName": "Illinois",
+        "cityName": "Chicago",
+        "zipCode": "60605",
+        "latitude": 41.8672,
+        "longitude": -87.6259
+    }
+});
+```
+
+Using JSONP Callbacks can help improve the performance of your application and make it easier to perform cross-domain AJAX requests.

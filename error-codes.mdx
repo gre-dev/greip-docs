@@ -1,0 +1,49 @@
+---
+title: "Error Codes"
+description: "List of any error you might get while using Greip API"
+icon: "bug"
+---
+
+Although we strive to provide a seamless and reliable experience, sometimes things can go wrong. In the event of an error, our API provides an error response that contains helpful information to assist you in resolving the issue.
+
+The error response includes the `status`, `code`, `type`, and `description` of the error. The status indicates the general category of the error, while the `code` and `type` provide more specific information about the error.
+
+The `description` property provides a detailed explanation of the error and may include suggestions for resolving the issue.
+
+Here is an example of an error response:
+
+```json
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+## Error codes
+
+| Code | Type                          | Description                                                                                                                    |
+| ---- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| 101  | `invalid_key`                 | The API Key is missing or invalid.                                                                                             |
+| 102  | `inactive_user`               | The API Key owner (the account) is inactive right now. Please contact the support team for more information.                   |
+| 103  | `limit_reached`               | You reached the limit of your plan for this month. Please change your account's plan or wait this month to end.                |
+| 104  | `invalid_params`              | Please check out the parms parameter's value.                                                                                  |
+| 105  | `plan_expired`                | Your plan has expired. Renew the subscription to enable using the API.                                                         |
+| 106  | `flood_detected`              | Our system has detected too many requests at the same time. Kindly please try to slow down.                                    |
+| 107  | `invalid_callback_name`       | The value of the callback parameter cannot be a function name.                                                                 |
+| 108  | `invalid_format`              | The value of the format parameter is not a valid format. Use `JSON`, `XML` or `Newline`.                                       |
+| 109  | `callback_not_allowd`         | You can use the callback feature only with the JSON format.                                                                    |
+| 110  | `invalid_language`            | The value of the lang parameter is not a valid format. Use `EN`, `AR`, `FR`, `DE`, `ES`, `JA`, `ZH` or `RU`.                   |
+| 111  | `invalid_mode`                | The value of the mode parameter is not a valid format. Use test or live.                                                       |
+| 112  | `invalid_ip`                  | The IP Address is not valid or empty.                                                                                          |
+| 113  | `domain_not_whitelisted`      | You are sending the request from a domain that is not the domain name you set in the API settings of your account's dashboard. |
+| 114  | `security_module_not_allowed` | You cannot use the security module in the free plan. Please upgrade your API plan to unlock this feature.                      |
+| 116  | `invalid_country_code`        | The Country Code is invalid or not found.                                                                                      |
+| 117  | `feature_not_available`       | This feature is not available for your plan, please upgrade your plan first.                                                   |
+| 118  | `invalid_phone_number`        | The Phone Number is invalid or missing.                                                                                        |
+| 119  | `invalid_email_address`       | The Email Address is invalid or missing.                                                                                       |
+| 120  | `invalid_bin_number`          | The BIN number is invalid or missing.                                                                                          |
+| 121  | `invalid_asn`                 | The AS Number you provided is empty or invalid.                                                                                |
+| 122  | `invalid_iban`                | The IBAN is invalid or missing.                                                                                                |
+| 123  | `invalid_userid`              | The user identifier is invalid or too long.                                                                                    |

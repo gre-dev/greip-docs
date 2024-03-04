@@ -1,0 +1,204 @@
+---
+title: "Webhooks"
+icon: "right-left"
+---
+
+## Overview
+
+Webhooks are a way for your Greip account to communicate and send notifications to external services or applications in real-time. By adding webhook URLs to your account, you can receive immediate updates and notifications about important events and activities within the Greip API.
+
+Webhooks play a vital role in enhancing the functionality and integration capabilities of Greip. They provide a seamless means to respond to events such as the detection of new Proxy Connection IP Addresses or the identification of fraudulent payments. With webhooks, you can stay informed about critical activities within your account and promptly take appropriate actions.
+
+Webhooks enable you to leverage the power of external systems by receiving event-driven data and updates. By receiving notifications through webhooks, you can streamline your workflows, trigger automated responses, and gain real-time insights into the fraudulent activities detected by Greip. This integration helps you enhance your fraud prevention measures, safeguard your systems, and maintain a secure online environment for your business and customers.
+
+## How to Add New Webhooks to Your Account
+
+Adding new webhooks to your Greip account is a straightforward process. Follow these steps to integrate webhooks into your account and start receiving notifications:
+
+<Steps>
+  <Step title="First Step">
+    Go to the [dashboard](https://greip.io/dashboard/Home) of your account
+  </Step>
+  <Step title="Second Step">
+    Navigate to the [API section](https://greip.io/dashboard/APIs) of the
+    dashboard
+  </Step>
+  <Step title="Third Step">
+    Locate the 'Manage' button on the right side of the 'Webhooks' section, as
+    shown below, then click on the 'Manage' button to make manage the webhooks
+    of your account
+  </Step>
+</Steps>
+
+<Accordion title="Still not sure? Click here">
+  <Frame caption="Greip Dashboard - Manage Webhooks">
+    ![Greip Dashboard - Manage Webhooks](/images/dashboard-webhooks.png)
+  </Frame>
+</Accordion>
+
+After clicking on the 'Manage' button shown in the screenshot above, you'll be navigated to another page where you can add, delete, or show your webhooks.
+
+<Warning>
+**IMPORTANT NOTES**
+
+- Creating webhooks is only available for accounts with paid subscriptions, and there's a limit for each subscription, please visit our [pricing](https://greip.io/pricing) page for more information.
+- You have the ability to add Webhook URLs that are already operating in production mode. It is important to ensure that these URLs return an HTTP Code 200 upon access. This signifies that the URL is functioning correctly.
+
+</Warning>
+
+## Webhook events
+
+Below, you will find sample requests for each event you may receive:
+
+<Accordion title="Proxy Detection Event">
+**Method: POST**
+
+Request headers
+
+```
+Accept: application/json
+Accept-Charset: utf-8
+Accept-Encoding: gzip, deflate
+User-Agent: Greip-Protocol/v1
+```
+
+Respones body
+
+```json
+{
+  "event": "proxy_detected",
+  "ip": "1.1.1.1",
+  "ipType": "IPv4",
+  "IPNumber": 16843009,
+  "countryCode": "US",
+  "countryGeoNameID": 6252001,
+  "countryName": "United States",
+  "security": {
+    "isProxy": false,
+    "proxyType": null,
+    "isTor": false,
+    "isBot": false,
+    "isRelay": false,
+    "isHosting": false
+  }
+}
+```
+
+</Accordion>
+
+<Accordion title="Payment Fraud Prevention Event">
+**Method: POST**
+
+Request headers
+
+```
+Accept: application/json
+Accept-Charset: utf-8
+Accept-Encoding: gzip, deflate
+User-Agent: Greip-Protocol/v1
+```
+
+Respones body
+
+```json
+{
+  "event": "fraud_payment",
+  "customer_id": "UID123",
+  "customer_email": "name@domain.com",
+  "customer_phone": "0555123456",
+  "score": 31.666666666666664,
+  "rules": [
+    {
+      "id": "PF10001",
+      "description": "High purchase rate, according to `customer_ip`."
+    },
+    {
+      "id": "PF10002",
+      "description": "High purchase rate, according to `customer_id`."
+    }
+  ],
+  "rulesChecked": 6,
+  "rulesDetected": 2
+}
+```
+
+</Accordion>
+
+<Accordion title="Profanity Detection Event">
+**Method: POST**
+
+Request headers
+
+```
+Accept: application/json
+Accept-Charset: utf-8
+Accept-Encoding: gzip, deflate
+User-Agent: Greip-Protocol/v1
+```
+
+Respones body
+
+```json
+{
+  "event": "profanity",
+  "text": "**** *****",
+  "totalBadWords": 2,
+  "riskScore": 1,
+  "isSafe": false
+}
+```
+
+</Accordion>
+
+<Accordion title="Spam Email Detection Event">
+**Method: POST**
+
+Request headers
+
+```
+Accept: application/json
+Accept-Charset: utf-8
+Accept-Encoding: gzip, deflate
+User-Agent: Greip-Protocol/v1
+```
+
+Respones body
+
+```json
+{
+  "event": "spam_email",
+  "email": "name@domain.com",
+  "score": 3,
+  "reason": "Email domain's SPF record is not set properly.",
+  "isValid": false
+}
+```
+
+</Accordion>
+
+<Accordion title="Spam Phone Number Detection Event">
+**Method: POST**
+
+Request headers
+
+```
+Accept: application/json
+Accept-Charset: utf-8
+Accept-Encoding: gzip, deflate
+User-Agent: Greip-Protocol/v1
+```
+
+Respones body
+
+```json
+{
+  "event": "spam_phone",
+  "phone": "0555123456",
+  "countryCode": "ir",
+  "carrier": "",
+  "reason": "Invalid phone number structure.",
+  "isValid": false
+}
+```
+
+</Accordion>

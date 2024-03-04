@@ -1,0 +1,198 @@
+---
+title: "IBAN Validation"
+description: "This method allows you to validate International Bank Account Numbers (IBANs) and retrieve additional information about the country associated with the IBAN"
+api: "GET /validateIBAN"
+---
+
+### Query Parameters
+
+<ParamField
+  query="iban"
+  type="string"
+  placeholder="The IBAN"
+  required
+>
+  The International Bank Account Number (IBAN) you want to validate.
+
+Sample value: `BE71096123456769`, or `BE71 0961 2345 6769`.
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="userID"
+  type="string"
+  placeholder="User Identifier"
+>
+  The userID command can be used to identify requests sent by specific users to monitor in the [Events Page](/dashboard-guides/monitoring-capabilities/real-time-threat-monitoring).
+
+Expected values: email address, phone number, user id, name, etc.
+
+For more information please refer to [User Identifier](/options/user-identifier.mdx).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "isValid": true,
+    "formats": {
+      "machine": "BE71096123456769",
+      "human": "BE71 0961 2345 6769",
+      "obfuscated": "BE** **** **** 6769"
+    },
+    "country": {
+      "name": "Belgium",
+      "IANA": "be",
+      "ISO3166": "BE",
+      "currency": "EUR",
+      "centralBank": {
+        "url": "http://www.nbb.be/",
+        "name": "National Bank of Belgium"
+      },
+      "membership": "eu_member",
+      "isEU": true,
+      "length": "16",
+      "isSEPA": true,
+      "swiftOfficial": true
+    }
+  },
+  "status": "success",
+  "executionTime": 1
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+## Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="isValid" type="boolean" required>
+      A boolean value that you can rely on to determine if the IBAN is valid or not.
+    </ResponseField>
+    <ResponseField name="formats" type="object" required>
+        <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="machine" type="string" required>
+            Machine format of the IBAN.
+            </ResponseField>
+            <ResponseField name="human" type="string" required>
+            Human-readable format of the IBAN.
+            </ResponseField>
+            <ResponseField name="obfuscated" type="string" required>
+            Obfuscated format of the IBAN.
+            </ResponseField>
+        </Expandable>
+    </ResponseField>
+    <ResponseField name="country" type="object" required>
+        <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="name" type="string" required>
+            Country name where the issuing bank is located.
+            </ResponseField>
+            <ResponseField name="IANA" type="string" required>
+            The [IANA](https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority) of the country.
+            </ResponseField>
+            <ResponseField name="ISO3166" type="string" required>
+            Country code in `ISO3166` format.
+            </ResponseField>
+            <ResponseField name="currency" type="string" required>
+            Currency of the country.
+            </ResponseField>
+            <ResponseField name="centralBank" type="string" required>
+                <Expandable title="properties" defaultOpen={true}>
+                    <ResponseField name="name" type="string" required>
+                    The name of the central bank of the issuing country.
+                    </ResponseField>
+                    <ResponseField name="url" type="string" required>
+                    The URL of the central bank of the issuing country.
+                    </ResponseField>
+                </Expandable>
+            </ResponseField>
+            <ResponseField name="membership" type="string" required>
+            Membership type of the bank.
+            </ResponseField>
+            <ResponseField name="isEU" type="boolean" required>
+            Determines whether the user is located within the European Union (EU) and is relevant for processing transactions or validations specific to EU countries.
+            </ResponseField>
+            <ResponseField name="length" type="string" required>
+            IBAN length in this country.
+            </ResponseField>
+            <ResponseField name="isSEPA" type="boolean" required>
+            Indicates whether the IBAN belongs to a country participating in the Single Euro Payments Area (SEPA)
+            </ResponseField>
+            <ResponseField name="swiftOfficial" type="boolean" required>
+            Typically indicates whether the IBAN corresponds to an official institution or entity that is part of the SWIFT network, which facilitates international financial transactions.
+            </ResponseField>
+        </Expandable>
+    </ResponseField>
+
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    The response status.
+
+    Expected values: `success`, or `error`.
+
+  </ResponseField>
+  <ResponseField name="executionTime" type="integer" required>
+    Time spent in milliseconds to process the data.
+  </ResponseField>
+</ResponseField>
+
+## Overview
+
+The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
+
+One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
+
+For example, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.

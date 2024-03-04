@@ -1,0 +1,19 @@
+---
+title: "Response Format"
+description: "Get the response in the format you prefer"
+icon: "2"
+---
+
+Our API provides flexibility in the format of the response, allowing you to customize the response format to best suit your needs. Whether you prefer `JSON`, `XML`, `CSV`, or `Newline` formats, we've got you covered.
+
+To change the format of the API response, simply add the format parameter to your API request and specify the desired format type. Please note that JSON is the default format, so there's no need to add this parameter if you want the response format to be in `JSON`.
+
+The available formats for the format parameter are: `JSON`, `XML`, `CSV`, and `Newline`.
+
+## Usage
+
+For example, if you want to retrieve data in XML format, you can use the following request URL:
+
+```
+https://gregeoip.com/GeoIP?key=1234567890&params=country_name&format=XML
+```

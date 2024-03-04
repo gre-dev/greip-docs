@@ -1,0 +1,59 @@
+---
+title: "Protecting your API Key"
+icon: "shield"
+---
+
+## Overview
+
+In order to use this service you have to obtain an API Key (You will have it once you open a new account). This is the secret key that will be used to send the requests to our API.
+
+As we mentioned above, it's a SECRET KEY. So, you cannot share it with others.
+
+In some cases you may need to leave this key to the public. So, anyone can obtain and use it. In such cases, you have to limit the usage of this API Key to your authorized hosts (domain names and/or IP Addresses). So, let's dive into this:
+
+## Whitelisting your hosts
+
+The purpose of this approach is to determine whether a request is originating from a specific list of domains or IP Addresses. If the request is coming from one of these domains or hosts, it is allowed. Otherwise, an error is returned, preventing the usage of the API Key. By implementing this method, your remaining requests will remain unaffected and won't be deducted.
+
+In order to do that, you have complete the following steps:
+
+<Steps>
+  <Step title="First Step">
+    Go to your the [API section](https://greip.io/dashboard/APIs) from your
+    dashboard.
+  </Step>
+  <Step title="Second Step">
+    Now, you are on the page that displays all the details about your current
+    plan and API settings.
+
+    To edit the 'Authorised hosts', locate the 'Edit' button on the right side of the section, as shown below, then click on the 'Edit' button to make changes to the authorised hosts.
+
+    <Frame caption="Greip Dashboard, updating the authorised hosts">
+    ![Greip Dashboard, updating the authorised hosts](/images/dashboard-authorised-hosts.png)
+    </Frame>
+
+  </Step>
+</Steps>
+
+After clicking on the 'Edit' button shown in the screenshot above, you'll be navigated to another page contains a text field. Type your hosts separated by comma, then save the changes.
+
+<Note>
+You can enter domain names and/or IP Addresses in this field.
+
+For example: let's say you want to send requests to the API from client-side using our JS Package and in the same time you're using our PHP Library to send request from the server-side. Then you have to add your domain name (where your client-side is hosted) and your server IP Address (where you use the PHP Library) and separate them by comma.
+
+E.g: `domain.com,123.45.67.89`
+
+</Note>
+
+<Warning>
+**Important Notes**
+
+1. The maximum length of the text you'll type in this field is 700 characters.
+2. Don't use spaces, tabs or newlines within the text.
+3. If you use subdomains, then you have to list them all, separate them by comma.
+4. Only IPv4 allowed to be listed here.
+5. If you use CloudFlare or any other service that using Proxy approach and you want to whitelist your server IP Address, then just add the real server IP Address to the 'Authorised Hosts'.
+6. If you leave the authorised hosts field empty, then **you're telling us that you want to allow all domains and IP addresses to use the API Key**.
+
+</Warning>

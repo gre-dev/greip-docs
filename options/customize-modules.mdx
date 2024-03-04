@@ -1,0 +1,31 @@
+---
+title: "Customize response modules"
+description: "Get exactly what you need for each request to Greip"
+icon: "1"
+---
+
+Our API provides the ability to specify which modules you need to retrieve data from, giving you more control over the information you receive. With this feature, you can streamline your workflow and optimize the performance of your platform.
+
+To retrieve data from specific modules, simply add the params parameter to your API request and specify the desired modules. Please note that the basic modules will always be included, so you don't need to specify them in the params parameter.
+
+For example, if you only need to retrieve user device information without the timezone data, you can use the following request URL:
+
+```
+https://gregeoip.com/GeoIP?key=1234567890&params=device
+```
+
+And, if your need to retrieve multiple modules, you can add the parameter by separate the needed modules with a comma:
+
+```
+https://gregeoip.com/GeoIP?key=1234567890&params=timezone,currency,security
+```
+
+## Available Options
+
+| Option     | Description                                                                                               | Free? |
+| ---------- | --------------------------------------------------------------------------------------------------------- | ----- |
+| `security` | Gives you the security checks for the IP Address including Proxy/VPN/Tor Detection.                       | No    |
+| `currency` | Gives you more details about user currency.                                                               | Yes   |
+| `timezone` | Provides you user timezone details (like: sunset, sunrise, etc).                                          | Yes   |
+| `location` | Adds more details about user location data.                                                               | Yes   |
+| `device`   | Provides you information related to user device (like: browser name & version, device type, OS, version). | Yes   |

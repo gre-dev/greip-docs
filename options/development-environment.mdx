@@ -1,0 +1,28 @@
+---
+title: "Development Environment"
+description: "Test everything before releasing it to the production environment"
+icon: "4"
+---
+
+Our Development Environment offers a seamless integration process for our API with your website or application. To ensure that your current plan's available requests remain unaffected, we recommend implementing the integration by adding the &mode=test parameter to your request.
+
+We highly recommend testing your integration thoroughly with the &mode=test parameter before removing it from your requests to ensure that everything is functioning as expected.
+
+<Note>
+  This parameter accepts two values, which are `test` and `live` and will be
+  working for all our modules. <br />
+  <br /> Please note that after setting this option to `test` you will get fake information,
+  it's used just through the development stage.
+</Note>
+
+Once the integration process is complete, you can remove the "&mode=test" parameter from your API requests. This parameter is designed solely for testing purposes and has no impact on the actual functionality of the API.
+
+## Sample Requests
+
+```
+https://gregeoip.com/GeoIP?key=12345&parms=location,currency&mode=test
+```
+
+```
+https://gregeoip.com/IPLookup?key=12345&parms=location,currency&mode=test
+```
