@@ -74,3 +74,82 @@ Expected values: any name that can be used as a function name in Javascript, e.g
 For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "asn": "AS6167",
+    "name": "CELLCO-PART",
+    "country": "US",
+    "org": "Verizon Business",
+    "phone": "+1-800-900-0241",
+    "email": "swipper@verizon.com",
+    "domain": "verizon.net",
+    "status": null,
+    "created": "2006-05-30",
+    "type": null,
+    "registry": null
+  },
+  "status": "success",
+  "executionTime": 4198
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+### Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="asn" type="string" required>
+      Autonomous System Number you're looking up.
+    </ResponseField>
+    <ResponseField name="name" type="string" required>
+      Name of the organization.
+    </ResponseField>
+    <ResponseField name="country" type="string" required>
+      Country code of the organization.
+    </ResponseField>
+    <ResponseField name="org" type="string" required>
+      Organization name.
+    </ResponseField>
+    <ResponseField name="phone" type="string" required>
+      Phone number contact for the organization.
+    </ResponseField>
+    <ResponseField name="email" type="string" required>
+      Email contact for the organization.
+    </ResponseField>
+    <ResponseField name="domain" type="string" required>
+      Domain associated with the organization.
+    </ResponseField>
+    <ResponseField name="status" type="string" required>
+      Status of the organization.
+    </ResponseField>
+    <ResponseField name="created" type="string" required>
+      Date of organization creation.
+    </ResponseField>
+    <ResponseField name="type" type="string" required>
+      Type of organization.
+    </ResponseField>
+    <ResponseField name="registry" type="string" required>
+      Registration information of the organization.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+<ResponseField name="status" type="string" required>
+  Response status (`success`, or `error`).
+</ResponseField>
+<ResponseField name="executionTime" type="integer" required>
+  Time taken to process the data (in milliseconds).
+</ResponseField>
