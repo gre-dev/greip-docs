@@ -12,8 +12,16 @@ To authenticate your requests, append the key parameter to the request URL, alon
 
 Add your API Key to the key parameter just like this:
 
-```
+```bash
 https://gregeoip.com/GeoIP?key=1234567890
+```
+
+Or, you can use the API Key as a Bearer Token as follows:
+
+```bash cURL
+curl --request GET \
+  --url https://gregeoip.com/GeoIP \
+  --header 'Authorization: Bearer <api-key>'
 ```
 
 ## Securing your API Key

@@ -19,6 +19,10 @@
     {
       "name": "Support",
       "url": "mailto:info@greip.io"
+    },
+    {
+      "name": "Request feature",
+      "url": "mailto:info@greip.io"
     }
   ],
   "topbarCtaButton": {
@@ -105,10 +109,6 @@
         "dashboard-guides/monitoring-capabilities/subscription-usage-tracking",
         "dashboard-guides/monitoring-capabilities/real-time-threat-monitoring"
       ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Packages & Libraries",
