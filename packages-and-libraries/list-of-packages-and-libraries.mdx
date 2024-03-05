@@ -3,6 +3,8 @@ title: "List of packages & libraries"
 icon: "bars-staggered"
 ---
 
+import { FlutterIcon, PHPIcon, PythonIcon } from "/snippets/icons/icons.mdx";
+
 <CardGroup cols={2}>
   <Card
     title="Javascript package"
@@ -15,9 +17,8 @@ icon: "bars-staggered"
   </Card>
   <Card
     title="PHP Library"
-    icon="php"
     href="https://github.com/Greipio/Greip-PHP"
-    color="#AEB2D5"
+    icon={<PHPIcon />}
   >
     A PHP package that simplifies the usage of all Greip services with just few
     lines of code.
@@ -29,5 +30,14 @@ icon: "bars-staggered"
   >
     Provides you with the ability to access some services of Greip through the
     your terminal.
+  </Card>
+  <Card title="Python Library" icon={<PythonIcon />}>
+    Comming soon..
+  </Card>
+  <Card title="Flutter Package" icon={<FlutterIcon />}>
+    Comming soon..
+  </Card>
+  <Card title="PHP Laravel Package" icon="laravel" color="#F05340">
+    Comming soon..
   </Card>
 </CardGroup>
