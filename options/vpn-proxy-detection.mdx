@@ -1,0 +1,140 @@
+---
+title: "VPN/Proxy Detection"
+description: "Detect and eliminate bad traffic!"
+icon: "7"
+---
+
+## Overview
+
+In both [GeoIP](/api-reference/ip-geolocation/geoip) and [IP Lookup](/api-reference/ip-geolocation/ip-lookup) methods you can pass the `security` module to the `params` query parameter in order to get full insights about the security threats of that specific IP address.
+
+## Sample Request
+
+<CodeGroup>
+```bash cURL
+curl --request GET \
+  --url 'https://gregeoip.com/GeoIP?params=security' \
+  --header 'Authorization: Bearer <token>'
+```
+
+```python Python
+import requests
+
+url = "https://gregeoip.com/GeoIP"
+
+querystring = {"params":"security"}
+
+headers = {"Authorization": "Bearer <token>"}
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print(response.text)
+```
+
+```javascript Javascript
+const options = { method: "GET", headers: { Authorization: "Bearer <token>" } };
+
+fetch("https://gregeoip.com/GeoIP?params=security", options)
+  .then((response) => response.json())
+  .then((response) => console.log(response))
+  .catch((err) => console.error(err));
+```
+
+```php PHP
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+  CURLOPT_URL => "https://gregeoip.com/GeoIP?params=security",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => ["Authorization: Bearer <token>"],
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```go Go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+	url := "https://gregeoip.com/GeoIP?params=security"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	req.Header.Add("Authorization", "Bearer <token>")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+```java Java
+HttpResponse<String> response = Unirest.get("https://gregeoip.com/GeoIP?params=security")
+  .header("Authorization", "Bearer <token>")
+  .asString();
+```
+
+</CodeGroup>
+
+## Sample Response
+
+```json
+{
+  "data": {
+    "ip": "165.227.149.217",
+    "ipType": "IPv4",
+    "IPNumber": 2783155673,
+    "continentName": "Europe",
+    "continentCode": "EU",
+    "countryCode": "DE",
+    "continentGeoNameID": 6255148,
+    "countryName": "Germany",
+    "countryGeoNameID": 2921044,
+    "regionName": "Hessen",
+    "cityName": "Frankfurt am Main",
+    "zipCode": "65931",
+    "latitude": "50.115520",
+    "longitude": "8.684170",
+    // ↓↓ this added here ↓↓
+    "security": {
+      "isProxy": true,
+      "proxyType": "VPN",
+      "isTor": false,
+      "isBot": false,
+      "isRelay": false,
+      "isHosting": true
+    }
+    // ↑↑ this added here ↑↑
+  },
+  "status": "success",
+  "executionTime": 4
+}
+```

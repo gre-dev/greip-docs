@@ -84,7 +84,8 @@
         "options/localization",
         "options/development-environment",
         "options/user-identifier",
-        "options/jsonp-callback"
+        "options/jsonp-callback",
+        "options/vpn-proxy-detection"
       ]
     },
     {
