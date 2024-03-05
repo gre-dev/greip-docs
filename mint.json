@@ -18,12 +18,6 @@
   "modeToggle": {
     "default": "dark"
   },
-  "redirects": [
-    {
-      "source": "/tools-and-libraries/geoip-cli",
-      "destination": "/packages-and-libraries/list-of-packages-and-libraries"
-    }
-  ],
   "topbarLinks": [
     {
       "name": "Support",
