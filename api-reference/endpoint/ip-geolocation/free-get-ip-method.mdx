@@ -7,20 +7,20 @@ icon: "heart"
 **Usage example**
 
 ```
-https://gregeoip.com/ip
+https://greipapi.com/ip
 ```
 
 <RequestExample>
 
 ```bash cURL
 curl --request GET \
-  --url https://gregeoip.com/ip
+  --url https://greipapi.com/ip
 ```
 
 ```python Python
 import requests
 
-url = "https://gregeoip.com/ip"
+url = "https://greipapi.com/ip"
 
 response = requests.request("GET", url)
 
@@ -30,7 +30,7 @@ print(response.text)
 ```javascript Javascript
 const options = { method: "GET" };
 
-fetch("https://gregeoip.com/ip", options)
+fetch("https://greipapi.com/ip", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -42,7 +42,7 @@ fetch("https://gregeoip.com/ip", options)
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://gregeoip.com/ip",
+  CURLOPT_URL => "https://greipapi.com/ip",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -73,7 +73,7 @@ import (
 )
 
 func main() {
-	url := "https://gregeoip.com/ip"
+	url := "https://greipapi.com/ip"
 	req, _ := http.NewRequest("GET", url, nil)
 	res, _ := http.DefaultClient.Do(req)
 
@@ -86,7 +86,7 @@ func main() {
 ```
 
 ```java Java
-HttpResponse<String> response = Unirest.get("https://gregeoip.com/ip")
+HttpResponse<String> response = Unirest.get("https://greipapi.com/ip")
   .asString();
 ```
 

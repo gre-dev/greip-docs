@@ -13,14 +13,14 @@ In both [GeoIP](/api-reference/ip-geolocation/geoip) and [IP Lookup](/api-refere
 <CodeGroup>
 ```bash cURL
 curl --request GET \
-  --url 'https://gregeoip.com/GeoIP?params=security' \
+  --url 'https://greipapi.com/GeoIP?params=security' \
   --header 'Authorization: Bearer <token>'
 ```
 
 ```python Python
 import requests
 
-url = "https://gregeoip.com/GeoIP"
+url = "https://greipapi.com/GeoIP"
 
 querystring = {"params":"security"}
 
@@ -34,7 +34,7 @@ print(response.text)
 ```javascript Javascript
 const options = { method: "GET", headers: { Authorization: "Bearer <token>" } };
 
-fetch("https://gregeoip.com/GeoIP?params=security", options)
+fetch("https://greipapi.com/GeoIP?params=security", options)
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
@@ -46,7 +46,7 @@ fetch("https://gregeoip.com/GeoIP?params=security", options)
 $curl = curl_init();
 
 curl_setopt_array($curl, [
-  CURLOPT_URL => "https://gregeoip.com/GeoIP?params=security",
+  CURLOPT_URL => "https://greipapi.com/GeoIP?params=security",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -79,7 +79,7 @@ import (
 
 func main() {
 
-	url := "https://gregeoip.com/GeoIP?params=security"
+	url := "https://greipapi.com/GeoIP?params=security"
 
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -97,7 +97,7 @@ func main() {
 ```
 
 ```java Java
-HttpResponse<String> response = Unirest.get("https://gregeoip.com/GeoIP?params=security")
+HttpResponse<String> response = Unirest.get("https://greipapi.com/GeoIP?params=security")
   .header("Authorization", "Bearer <token>")
   .asString();
 ```

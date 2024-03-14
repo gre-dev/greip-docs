@@ -163,7 +163,7 @@
     "raiseIssue": false
   },
   "api": {
-    "baseUrl": "https://gregeoip.com",
+    "baseUrl": "https://greipapi.com",
     "auth": {
       "method": "bearer"
     },
