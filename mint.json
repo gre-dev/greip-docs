@@ -125,6 +125,7 @@
         "api-reference/endpoint/ip-geolocation/ip-lookup",
         "api-reference/endpoint/ip-geolocation/bulk-lookup",
         "api-reference/endpoint/ip-geolocation/asn-lookup",
+        "api-reference/endpoint/ip-geolocation/ip-threats",
         "api-reference/endpoint/ip-geolocation/free-get-ip-method"
       ]
     },
