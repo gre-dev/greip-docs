@@ -55,6 +55,11 @@
       "url": "https://changelog.greip.io"
     },
     {
+      "name": "Server Status",
+      "icon": "signal-bars",
+      "url": "https://status.greip.io"
+    },
+    {
       "name": "Articles",
       "icon": "newspaper",
       "url": "https://greip.io/blog"
