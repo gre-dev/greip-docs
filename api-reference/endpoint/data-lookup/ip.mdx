@@ -1,10 +1,24 @@
 ---
-title: "GeoIP"
-description: "You can use this API to retrieve the IP Address of the visitor/user with its full information. This can be done just by using the GeoIP method in the request."
-api: "GET /GeoIP"
+title: "IP Lookup"
+description: "Use this API to retrieve comprehensive information about a given IP address. It provides details such as location, ISP, and potential risk factors, enabling you to analyze and verify IP data for enhanced security, fraud prevention, and user profiling."
+api: "GET /lookup/ip"
 ---
 
 ### Query Parameters
+
+<ParamField
+  query="ip"
+  type="string"
+  placeholder="IP address"
+  required
+>
+  The ip command is used to specify the IP address you want to lookup.
+
+Expected values: an IP address (IPv4 or IPv6)
+
+Sample value: `1.1.1.1`
+
+</ParamField>
 
 <ParamField
   query="params"
@@ -14,7 +28,7 @@ api: "GET /GeoIP"
   The params command can be used to specify the required modules you want to get
   in the response.
 
-Expected values: `security`, `currency`, `timezone`, `location`, and/or `device`
+Expected values: `security`, `currency`, `timezone`, and/or `location`.
 
 Sample value: `security,timezone,currency`
 
@@ -170,24 +184,6 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       "isBot": false,
       "isRelay": false,
       "isHosting": true
-    },
-    "device": {
-      "isMobile": false,
-      "type": "desktop",
-      "OS": {
-        "type": "desktop",
-        "name": "MacOS",
-        "family": "macintosh",
-        "version": "Big Sur",
-        "title": "MacOS Big Sur",
-        "64bits_mode": 1
-      },
-      "browser": {
-        "name": "Safari",
-        "version": 17.2,
-        "versionMajor": 1,
-        "title": "Safari 17.2"
-      }
     }
   },
   "status": "success",
@@ -438,57 +434,6 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
         </ResponseField>
         <ResponseField name="isHosting" type="boolean" required>
           Indicates if the IP address belong to a hosting provider.
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="device" type="object" required>
-      <Expandable title="details">
-        <ResponseField name="isMobile" type="boolean" required>
-          Indicates if the device is a mobile device.
-        </ResponseField>
-        <ResponseField name="type" type="string" required>
-          Type of device.
-        </ResponseField>
-        <ResponseField name="OS" type="object" required>
-          <Expandable title="details">
-            <ResponseField name="type" type="string" required>
-              Type of operating system.
-            </ResponseField>
-            <ResponseField name="name" type="string" required>
-              Name of the operating system.
-            </ResponseField>
-            <ResponseField name="family" type="string" required>
-              Family of the operating system.
-            </ResponseField>
-            <ResponseField name="version" type="string" required>
-              Version of the operating system.
-            </ResponseField>
-            <ResponseField name="title" type="string" required>
-              Title of the operating system.
-            </ResponseField>
-            <ResponseField name="64bits_mode" type="integer" required>
-              Indicates 64-bit mode (1 for true, 0 for false).
-            </ResponseField>
-          </Expandable>
-        </ResponseField>
-        <ResponseField name="browser" type="object" required>
-          <Expandable title="details">
-            <ResponseField name="name" type="string" required>
-              Name of the browser.
-            </ResponseField>
-            <ResponseField name="version" type="number" required>
-              Version of the browser.
-            </ResponseField>
-            <ResponseField name="versionMajor" type="integer" required>
-              Major version of the browser.
-            </ResponseField>
-            <ResponseField name="title" type="string" required>
-              Title of the browser.
-            </ResponseField>
-            <ResponseField name="userAgent" type="string" required>
-              The user-agent of the browser.
-            </ResponseField>
-          </Expandable>
         </ResponseField>
       </Expandable>
     </ResponseField>

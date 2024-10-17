@@ -6,21 +6,21 @@ icon: "key"
 
 To access our API and take advantage of all the available methods, you will need to authenticate your requests using your unique API Key. This key is a secure authentication mechanism that ensures only authorized users can access the API.
 
-To obtain your API Key, simply navigate to your [account dashboard](https://greip.io/dashboard/APIs). Once you have your API Key, you can begin authenticating your requests.
+To obtain your API Key, simply navigate to your [account dashboard](https://dashboard.greip.io/home). Once you have your API Key, you can begin authenticating your requests.
 
 To authenticate your requests, append the key parameter to the request URL, along with your API Key. Here is an example of how to do this:
 
 Add your API Key to the key parameter just like this:
 
 ```bash
-https://greipapi.com/GeoIP?key=1234567890
+https://greipapi.com/geoip?key=1234567890
 ```
 
 Or, you can use the API Key as a Bearer Token as follows:
 
 ```bash cURL
 curl --request GET \
-  --url https://greipapi.com/GeoIP \
+  --url https://greipapi.com/geoip \
   --header 'Authorization: Bearer <api-key>'
 ```
 

@@ -1,34 +1,22 @@
 ---
-title: "Phone Number Validation"
-description: "This method can be used as an extra-layer of your system for validating phone numbers. It validates phone number syntax and valid-possibility."
-api: "GET /validatePhone"
+title: "Email Scoring"
+description: "This method provides an additional layer of validation for your system. While validating email syntax is important, it is not sufficient.\n\nThis method goes beyond syntax validation by checking the domain's validity, the availability of the Mail Service, detecting Disposable Email (Temporary Emails), etc. By utilising this method, you can ensure a more thorough validation process for email addresses."
+api: "GET /scoring/email"
 ---
 
 ### Query Parameters
 
 <ParamField
-  query="phone"
+  query="email"
   type="string"
-  placeholder="Phone number"
+  placeholder="Email address"
   required
 >
-  The phone command is used to specify the phone number you want to validate.
+  The email command is used to specify the email you want to validate.
 
-Expected values: a phone number
+Expected values: an email address
 
-Sample value: `+12121234567`, `0012121234567`, `12121234567`, or `2121234567`
-
-</ParamField>
-
-<ParamField
-  query="countryCode"
-  type="string"
-  placeholder="Phone number"
-  required
->
-  The `ISO 3166-1 alpha-2` format of the country code of the phone number. [Learn more](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-
-Sample value: `US`
+Sample value: `name@domain.com`
 
 </ParamField>
 
@@ -91,12 +79,12 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 ```json Success
 {
   "data": {
-    "carrier": "",
-    "reason": "Invalid phone number structure.",
+    "score": 3,
+    "reason": "Invalid email domain.",
     "isValid": false
   },
   "status": "success",
-  "executionTime": 1
+  "executionTime": 10
 }
 ```
 
@@ -115,16 +103,17 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 <ResponseField name="data" type="object" required>
   <Expandable title="properties" defaultOpen={true}>
-    <ResponseField name="carrier" type="string" required>
-      Carrier name of the phone number.
+    <ResponseField name="score" type="integer" required>
+      A risk-score from 0 to 3 indicating how risky this email address is
+      (0=safe, 1=low-risk, 2=high-risk, 3=too-risky).
     </ResponseField>
     <ResponseField name="reason" type="string" required>
-      The reason behind considering this phone number as risky.
+      The reason behind considering this email address as risky.
 
-      **Note:** The value of this property will be empty if the `isValid` is `true`.
+      **Note:** The value of this property will be empty if the `score` is `0`.
     </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
-      A boolean value that you can rely on to determine if the phone number is 100% safe & valid or not.
+      A boolean value that you can rely on to determine if the email address is 100% safe & valid or not.
     </ResponseField>
 
   </Expandable>
