@@ -31,12 +31,12 @@
   },
   "tabs": [
     {
-      "name": "Dashboard Guides",
-      "url": "dashboard-guides"
-    },
-    {
       "name": "API Reference",
       "url": "api-reference"
+    },
+    {
+      "name": "Knowledge Base",
+      "url": "knowledge-base"
     },
     {
       "name": "Packages & Libraries",
@@ -94,26 +94,30 @@
       ]
     },
     {
-      "group": "Dashboard Guides",
+      "group": "Getting Started",
+      "pages": ["knowledge-base/getting-started/introduction"]
+    },
+    {
+      "group": "Account Management",
       "pages": [
-        "dashboard-guides/account-management/webhooks",
-        "dashboard-guides/account-management/obtaining-api-key",
-        "dashboard-guides/account-management/protecting-your-api-key",
-        "dashboard-guides/account-management/upgrading-your-account"
+        "knowledge-base/account-management/webhooks",
+        "knowledge-base/account-management/obtaining-api-key",
+        "knowledge-base/account-management/protecting-your-api-key",
+        "knowledge-base/account-management/upgrading-your-account"
       ]
     },
     {
       "group": "Affiliate Program",
       "pages": [
-        "dashboard-guides/affiliates-program/becoming-affiliate-partner",
-        "dashboard-guides/affiliates-program/payout-settings"
+        "knowledge-base/affiliates-program/becoming-affiliate-partner",
+        "knowledge-base/affiliates-program/payout-settings"
       ]
     },
     {
       "group": "Monitoring Capabilities",
       "pages": [
-        "dashboard-guides/monitoring-capabilities/subscription-usage-tracking",
-        "dashboard-guides/monitoring-capabilities/real-time-threat-monitoring"
+        "knowledge-base/monitoring-capabilities/subscription-usage-tracking",
+        "knowledge-base/monitoring-capabilities/real-time-threat-monitoring"
       ]
     },
     {
@@ -220,6 +224,10 @@
     {
       "source": "/api-reference/endpoint/payment-fraud/payment-fraud-prevention",
       "destination": "/api-reference/endpoint/scoring/payment"
+    },
+    {
+      "source": "/dashboard-guides/:slug*",
+      "destination": "/knowledge-base/:slug*"
     }
   ]
 }
