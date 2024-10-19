@@ -103,7 +103,8 @@
         "knowledge-base/account-management/webhooks",
         "knowledge-base/account-management/obtaining-api-key",
         "knowledge-base/account-management/protecting-your-api-key",
-        "knowledge-base/account-management/upgrading-your-account"
+        "knowledge-base/account-management/upgrading-your-account",
+        "knowledge-base/account-management/downloading-invoices"
       ]
     },
     {
@@ -116,17 +117,17 @@
       ]
     },
     {
-      "group": "Affiliate Program",
-      "pages": [
-        "knowledge-base/affiliates-program/becoming-affiliate-partner",
-        "knowledge-base/affiliates-program/payout-settings"
-      ]
-    },
-    {
       "group": "Monitoring Capabilities",
       "pages": [
         "knowledge-base/monitoring-capabilities/subscription-usage-tracking",
         "knowledge-base/monitoring-capabilities/real-time-threat-monitoring"
+      ]
+    },
+    {
+      "group": "Affiliate Program",
+      "pages": [
+        "knowledge-base/affiliates-program/becoming-affiliate-partner",
+        "knowledge-base/affiliates-program/payout-settings"
       ]
     },
     {
