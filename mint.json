@@ -20,8 +20,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:info@greip.io"
+      "name": "Community",
+      "url": "https://join.slack.com/t/greip-community/shared_invite/zt-2sxdyaaj8-418mMcVlekO6sNhKOAGWpg"
     }
   ],
   "backgroundImage": "/images/background-light.png",
@@ -166,7 +166,8 @@
   "footerSocials": {
     "linkedin": "https://www.linkedin.com/company/greip",
     "github": "https://github.com/Greipio",
-    "website": "https://greip.io"
+    "website": "https://greip.io",
+    "slack": "https://join.slack.com/t/greip-community/shared_invite/zt-2sxdyaaj8-418mMcVlekO6sNhKOAGWpg"
   },
   "feedback": {
     "thumbsRating": true,
