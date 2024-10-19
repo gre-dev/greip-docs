@@ -103,6 +103,8 @@
         "knowledge-base/account-management/webhooks",
         "knowledge-base/account-management/obtaining-api-key",
         "knowledge-base/account-management/protecting-your-api-key",
+        "knowledge-base/account-management/enabling-2fa",
+        "knowledge-base/account-management/manage-authorized-devices",
         "knowledge-base/account-management/upgrading-your-account",
         "knowledge-base/account-management/downloading-invoices"
       ]
