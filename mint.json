@@ -107,6 +107,15 @@
       ]
     },
     {
+      "group": "Events & Alerts",
+      "pages": [
+        "knowledge-base/events-and-alerts/overview",
+        "knowledge-base/events-and-alerts/filtering",
+        "knowledge-base/events-and-alerts/exporting-events",
+        "knowledge-base/events-and-alerts/view-event-details"
+      ]
+    },
+    {
       "group": "Affiliate Program",
       "pages": [
         "knowledge-base/affiliates-program/becoming-affiliate-partner",
@@ -152,9 +161,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/greipio",
-    "github": "https://github.com/Greipio",
     "linkedin": "https://www.linkedin.com/company/greip",
+    "github": "https://github.com/Greipio",
     "website": "https://greip.io"
   },
   "feedback": {
