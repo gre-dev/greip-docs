@@ -82,7 +82,7 @@
       ]
     },
     {
-      "group": "Options",
+      "group": "API Features",
       "pages": [
         "options/customize-modules",
         "options/response-format",
@@ -144,7 +144,7 @@
       "group": "Packages & Libraries",
       "pages": [
         "packages-and-libraries/list-of-packages-and-libraries",
-        "packages-and-libraries/postman-collection"
+        "packages-and-libraries/other-resources"
       ]
     },
     {
@@ -248,6 +248,10 @@
     {
       "source": "/dashboard-guides/:slug*",
       "destination": "/knowledge-base/:slug*"
+    },
+    {
+      "source": "/packages-and-libraries/postman-collection",
+      "destination": "/packages-and-libraries/other-resources"
     }
   ]
 }
