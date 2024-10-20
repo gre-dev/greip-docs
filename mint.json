@@ -133,6 +133,14 @@
       ]
     },
     {
+      "group": "Integrations",
+      "pages": [
+        "knowledge-base/integrations/slack",
+        "knowledge-base/integrations/zapier",
+        "knowledge-base/integrations/ifttt"
+      ]
+    },
+    {
       "group": "Packages & Libraries",
       "pages": [
         "packages-and-libraries/list-of-packages-and-libraries",
