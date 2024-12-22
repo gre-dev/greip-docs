@@ -82,6 +82,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "score": 3,
     "reason": "Invalid email domain.",
     "isFree": true,
+    "isRoleBased": false,
     "isValid": false
   },
   "status": "success",
@@ -116,6 +117,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     <ResponseField name="isFree" type="boolean" required>
       Indicates whether the email address is from a free email service provider.
     </ResponseField>
+    <ResponseField name="isRoleBased" type="boolean" required>
+      Indicates whether the email address is a role-based email address. Role-based email addresses are those that are associated with a particular role or group, such as `admin`, `support`, `info`, etc.
+    </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
       A boolean value that you can rely on to determine if the email address is 100% safe & valid or not.
     </ResponseField>
@@ -136,5 +140,6 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 - Detection of disposable email addresses (also known as Temporary Email Addresses)
 - Detection of free email service providers
+- Detection of role-based email addresses
 - Testing the email service provider of a given email address
 - Validation of email syntax
