@@ -81,6 +81,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
   "data": {
     "score": 3,
     "reason": "Invalid email domain.",
+    "isFree": true,
     "isValid": false
   },
   "status": "success",
@@ -112,6 +113,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
       **Note:** The value of this property will be empty if the `score` is `0`.
     </ResponseField>
+    <ResponseField name="isFree" type="boolean" required>
+      Indicates whether the email address is from a free email service provider.
+    </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
       A boolean value that you can rely on to determine if the email address is 100% safe & valid or not.
     </ResponseField>
@@ -131,5 +135,6 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 ## What can I expect from this API?
 
 - Detection of disposable email addresses (also known as Temporary Email Addresses)
+- Detection of free email service providers
 - Testing the email service provider of a given email address
 - Validation of email syntax
