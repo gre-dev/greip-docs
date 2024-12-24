@@ -1,6 +1,6 @@
 ---
 title: "Profanity Detection"
-description: "This method helps safeguard your website or app by detecting offensive or inappropriate language in user inputs. By screening for profanity and other harmful content before it’s made public, you can maintain a positive user environment, protect your brand, and prevent abusive behavior on your platform."
+description: "This method helps safeguard your website or app by detecting offensive or inappropriate language in user inputs. By screening for profanity and other harmful content before it’s made public, you can maintain a positive user environment, protect your brand, and prevent abusive behavior on your platform.\n\nThis method uses Machine Learning (ML) to analyze text and determine whether it contains profanity. It returns a score for the text you pass, classifying it as safe or risky."
 api: "GET /scoring/profanity"
 ---
 
@@ -82,6 +82,67 @@ Expected values: any name that can be used as a function name in Javascript, e.g
 For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "isML": true,
+    "text": "This is just a normal text",
+    "totalBadWords": null,
+    "riskScore": 0,
+    "isSafe": true,
+    "status": "success",
+    "executionTime": 120
+  }
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+### Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="isML" type="boolean" required>
+      A boolean value that indicates whether the detection is done by Machine Learning or not.
+    </ResponseField>
+    <ResponseField name="text" type="string" required>
+      The text you passed to the API.
+    </ResponseField>
+    <ResponseField name="totalBadWords" type="number" required>
+      The total number of profane words found in the text.
+
+      **Note:** This field is only available when `isML` is `true`, otherwise you'll get `null`.
+    </ResponseField>
+    <ResponseField name="riskScore" type="number" required>
+      The risk score of the text you passed.
+    </ResponseField>
+    <ResponseField name="isSafe" type="boolean" required>
+      A boolean value that indicates whether the text is safe or not.
+    </ResponseField>
+
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    The response status.
+
+    Expected values: `success`, or `error`.
+
+  </ResponseField>
+  <ResponseField name="executionTime" type="integer" required>
+    Time spent in milliseconds to process the data.
+  </ResponseField>
+</ResponseField>
 
 <Note>
 This method returns a score for the text you pass.
