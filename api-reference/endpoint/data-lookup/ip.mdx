@@ -112,6 +112,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "ip": "165.227.149.217",
     "ipType": "IPv4",
     "IPNumber": 2783155673,
+    "bogon": false,
     "continentName": "Europe",
     "continentCode": "EU",
     "countryCode": "DE",
@@ -214,6 +215,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="IPNumber" type="integer" required>
       Numeric representation of the IP address.
+    </ResponseField>
+    <ResponseField name="bogon" type="boolean" required>
+      Indicates if the IP address is a bogon.
     </ResponseField>
     <ResponseField name="continentName" type="string" required>
       Name of the continent where the IP address is.
