@@ -4,6 +4,28 @@ description: "Prevent financial losses and protect your business by deploying AI
 api: "POST /scoring/payment"
 ---
 
+## Overview
+
+Detecting and preventing fraudulent payments is a critical task for any business that accepts online payments. This AI-based module is designed to help you do that by analysing a range of data points related to each transaction.
+
+Using sophisticated machine learning algorithms, this method can detect and flag potentially fraudulent transactions by analysing user data, user behaviour, user device, and other factors. For example, if a transaction appears to be coming from an unusual location or device, or if the user's behaviour is inconsistent with their past transactions, this method can flag the transaction for further review or rejection.
+
+One of the key advantages of this AI-based module is its ability to adapt and learn over time. As it analyses more data and detects more fraud, it can improve its accuracy and efficiency, making it a highly effective tool for preventing financial losses due to fraud.
+
+By implementing this method in your payment processing system, you can help protect your business and your customers from fraudulent activity, while providing a seamless and secure payment experience.
+
+<Warning>
+  "ECOMMERCE LOSSES TO ONLINE PAYMENT FRAUD TO **EXCEED $48 BILLION** GLOBALLY
+  IN 2023, AS FRAUD INCURSIONS EVOLVE", according to a recent report by Juniper
+  Research.
+</Warning>
+
+## Integration Workflow
+
+<Frame caption="Greip Payment Fraud Module - Workflow">
+  ![Greip Payment Fraud Module - Workflow](/images/payment-fraud-flow.png)
+</Frame>
+
 ### Body Parameters
 
 <ParamField
@@ -387,24 +409,26 @@ For more information please refer to [User Identifier](/options/user-identifier)
 
 </ResponseField>
 
-## Overview
+## Possible Rules
 
-Detecting and preventing fraudulent payments is a critical task for any business that accepts online payments. This AI-based module is designed to help you do that by analysing a range of data points related to each transaction.
-
-Using sophisticated machine learning algorithms, this method can detect and flag potentially fraudulent transactions by analysing user data, user behaviour, user device, and other factors. For example, if a transaction appears to be coming from an unusual location or device, or if the user's behaviour is inconsistent with their past transactions, this method can flag the transaction for further review or rejection.
-
-One of the key advantages of this AI-based module is its ability to adapt and learn over time. As it analyses more data and detects more fraud, it can improve its accuracy and efficiency, making it a highly effective tool for preventing financial losses due to fraud.
-
-By implementing this method in your payment processing system, you can help protect your business and your customers from fraudulent activity, while providing a seamless and secure payment experience.
-
-<Warning>
-  "ECOMMERCE LOSSES TO ONLINE PAYMENT FRAUD TO **EXCEED $48 BILLION** GLOBALLY
-  IN 2023, AS FRAUD INCURSIONS EVOLVE", according to a recent report by Juniper
-  Research.
-</Warning>
-
-## Integration Workflow
-
-<Frame caption="Greip Payment Fraud Module - Workflow">
-  ![Greip Payment Fraud Module - Workflow](/images/payment-fraud-flow.png)
-</Frame>
+| Id     | Description                                                                                                                             |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| PF1001 | High purchase rate, according to `customer_ip`.                                                                                         |
+| PF1002 | High purchase rate, according to `customer_id`.                                                                                         |
+| PF1003 | Customer IP Address is probably VPN/Proxy/Bot/Hosting/Cloud.                                                                            |
+| PF1004 | Customer Email Address is probably invalid, disposable or spam.                                                                         |
+| PF1005 | Customer Phone Number is probably invalid or spam.                                                                                      |
+| PF1006 | Customer Latitude/Longitude is invalid.                                                                                                 |
+| PF1007 | Customer card number (BIN/IIN) is invalid.                                                                                              |
+| PF1008 | Customer debit/credit card issued by a brand different from the one exist in `payment_type` parameter.                                  |
+| PF1009 | Customer country is a high-fraud country.                                                                                               |
+| PF1010 | Customer debit/credit card issued in a high-risk country.                                                                               |
+| PF1011 | Customer is purchasing multiple times from multiple locations within the past 30 days.                                                  |
+| PF1012 | Customer debit/credit card is being used multiple times from multiple customer accounts (according to `customer_id` and `card_number`). |
+| PF1013 | Customer device might not be a real device (according to `customer_useragent`).                                                         |
+| PF1014 | Customer device is registered as a high-risk device (according to `customer_useragent`).                                                |
+| PF1015 | AI flagged the transaction as potentially fraudulent.                                                                                   |
+| PF1016 | AI flagged the transaction as potentially fraudulent due to high transaction amount.                                                    |
+| PF1017 | Mismatch between billing address and IP geolocation.                                                                                    |
+| PF1018 | Customer has multiple fraudulent transactions in the past 30 days.                                                                      |
+| PF1019 | Unusual purchase amount compared to customer’s history.                                                                                 |
