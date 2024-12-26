@@ -1,0 +1,81 @@
+---
+title: "User Data Deletion"
+description: "In some cases, such as data protection regulations, businesses that process personal data are required to delete it upon request.\n\nUsing this method, you'll be able to delete all data related to your user in a single request."
+api: "DELETE /account/users/delete"
+---
+
+<Warning>
+  **This action cannot be undone**, all deleted data will be deleted immediately
+  from our system.
+</Warning>
+
+<Note>
+  User data can be deleted 2 minutes after its creation in our system.
+</Note>
+
+### Body Parameters
+
+<ParamField body="value" type="string" required>
+  The email address, phone number, or user ID (in your system) of the user whose
+  data you want to delete.
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "transaction_data": 25,
+    "ips": 4,
+    "profanity_data": 3,
+    "emails": 1,
+    "phone_numbers": 1,
+    "ibans": 10
+  },
+  "status": "success"
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+### Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="transaction_data" type="integer">
+      Number of transactions or transaction related data deleted.
+    </ResponseField>
+    <ResponseField name="ips" type="integer">
+      Number of IP addresses related data deleted.
+    </ResponseField>
+    <ResponseField name="profanity_data" type="integer">
+      Number of user data deleted from the usage of Profanity Detection endpint.
+    </ResponseField>
+    <ResponseField name="emails" type="integer">
+      Number of user data deleted from the Email Scoring endpoint.
+    </ResponseField>
+    <ResponseField name="phone_numbers" type="integer">
+      Number of user data deleted from the Phone Scoring endpoint.
+    </ResponseField>
+    <ResponseField name="ibans" type="integer">
+      Number of user data deleted from the IBAN Lookup endpoint.
+    </ResponseField>
+
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    The response status.
+
+    Expected values: `success`, or `error`.
+
+  </ResponseField>
+
+</ResponseField>

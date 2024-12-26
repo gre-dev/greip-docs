@@ -169,6 +169,10 @@
         "api-reference/endpoint/scoring/profanity",
         "api-reference/endpoint/scoring/payment"
       ]
+    },
+    {
+      "group": "Account Management",
+      "pages": ["api-reference/endpoint/account/users/delete"]
     }
   ],
   "footerSocials": {
