@@ -411,24 +411,27 @@ For more information please refer to [User Identifier](/options/user-identifier)
 
 ## Possible Rules
 
-| Id     | Description                                                                                                                             |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| PF1001 | High purchase rate, according to `customer_ip`.                                                                                         |
-| PF1002 | High purchase rate, according to `customer_id`.                                                                                         |
-| PF1003 | Customer IP Address is probably VPN/Proxy/Bot/Hosting/Cloud.                                                                            |
-| PF1004 | Customer Email Address is probably invalid, disposable or spam.                                                                         |
-| PF1005 | Customer Phone Number is probably invalid or spam.                                                                                      |
-| PF1006 | Customer Latitude/Longitude is invalid.                                                                                                 |
-| PF1007 | Customer card number (BIN/IIN) is invalid.                                                                                              |
-| PF1008 | Customer debit/credit card issued by a brand different from the one exist in `payment_type` parameter.                                  |
-| PF1009 | Customer country is a high-fraud country.                                                                                               |
-| PF1010 | Customer debit/credit card issued in a high-risk country.                                                                               |
-| PF1011 | Customer is purchasing multiple times from multiple locations within the past 30 days.                                                  |
-| PF1012 | Customer debit/credit card is being used multiple times from multiple customer accounts (according to `customer_id` and `card_number`). |
-| PF1013 | Customer device might not be a real device (according to `customer_useragent`).                                                         |
-| PF1014 | Customer device is registered as a high-risk device (according to `customer_useragent`).                                                |
-| PF1015 | AI flagged the transaction as potentially fraudulent.                                                                                   |
-| PF1016 | AI flagged the transaction as potentially fraudulent due to high transaction amount.                                                    |
-| PF1017 | Mismatch between billing address and IP geolocation.                                                                                    |
-| PF1018 | Customer has multiple fraudulent transactions in the past 30 days.                                                                      |
-| PF1019 | Unusual purchase amount compared to customer’s history.                                                                                 |
+| Id      | Description                                                                                                                             |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| PF1001  | High purchase rate, according to `customer_ip`.                                                                                         |
+| PF1002  | High purchase rate, according to `customer_id`.                                                                                         |
+| PF1003  | Customer IP Address is probably VPN/Proxy/Bot/Hosting/Cloud.                                                                            |
+| PF1004  | Customer Email Address is probably invalid, disposable or spam.                                                                         |
+| PF1005  | Customer Phone Number is probably invalid or spam.                                                                                      |
+| PF1006  | Customer Latitude/Longitude is invalid.                                                                                                 |
+| PF1007  | Customer card number (BIN/IIN) is invalid.                                                                                              |
+| PF1008  | Customer debit/credit card issued by a brand different from the one exist in `payment_type` parameter.                                  |
+| PF1009  | Customer country is a high-fraud country.                                                                                               |
+| PF1010  | Customer debit/credit card issued in a high-risk country.                                                                               |
+| PF1011  | Customer is purchasing multiple times from multiple locations within the past 30 days.                                                  |
+| PF1012  | Customer debit/credit card is being used multiple times from multiple customer accounts (according to `customer_id` and `card_number`). |
+| PF1013  | Customer device might not be a real device (according to `customer_useragent`).                                                         |
+| PF1014  | Customer device is registered as a high-risk device (according to `customer_useragent`).                                                |
+| PF1015  | AI flagged the transaction as potentially fraudulent.                                                                                   |
+| PF1016  | AI flagged the transaction as potentially fraudulent due to high transaction amount.                                                    |
+| PF1017  | Mismatch between billing address and IP geolocation.                                                                                    |
+| PF1018  | Customer has multiple fraudulent transactions in the past 30 days.                                                                      |
+| PF1019  | Unusual purchase amount compared to customer’s history.                                                                                 |
+| PF1020  | Transaction initiated from a newly created account.                                                                                     |
+| PF10021 | Multiple payment cards used by a single account within a short timeframe.                                                               |
+| PF10022 | Phone number country code does not match billing address.                                                                               |
