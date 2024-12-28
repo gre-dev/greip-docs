@@ -5,6 +5,14 @@ description: "Utilize this module to effortlessly retrieve comprehensive informa
 api: "GET /lookup/bin"
 ---
 
+### Overview
+
+The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
+
+One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
+
+For example, based on of our case studies, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.
+
 ### Query Parameters
 
 <ParamField
@@ -80,6 +88,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
   "data": {
     "reason": "",
     "isValid": true,
+    "bin": "456789",
     "info": {
       "scheme": {
         "name": "Visa",
@@ -121,7 +130,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
         "languageCode": "ar",
         "languageNative": "العربية"
       }
-    }
+    },
+    "custom_rules_applied": []
   },
   "status": "success",
   "executionTime": 2
@@ -139,10 +149,152 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ResponseExample>
 
-## Overview
+### Response properties
 
-The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
-
-One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
-
-For example, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="reason" type="string" required>
+      Reason for the validation result.
+    </ResponseField>
+    <ResponseField name="isValid" type="boolean" required>
+      Validation result (`true` or `false`).
+    </ResponseField>
+    <ResponseField name="bin" type="string" required>
+      The BIN/IIN of the card you passed in the request.
+    </ResponseField>
+    <ResponseField name="info" type="object" required>
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="scheme" type="object" required>
+          <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="name" type="object" required>
+              Card scheme name.
+            </ResponseField>
+            <ResponseField name="coName" type="object" required>
+              Card company name.
+            </ResponseField>
+            <ResponseField name="isLuha" type="boolean" required>
+              Is the card issued by Luha?
+            </ResponseField>
+            <ResponseField name="isPrepaid" type="boolean" required>
+              Is the card prepaid?
+            </ResponseField>
+            <ResponseField name="isCommercial" type="boolean" required>
+              Is the card commercial?
+            </ResponseField>
+            <ResponseField name="type" type="string" required>
+              Card type (`debit`, or `credit`).
+            </ResponseField>
+            <ResponseField name="brand" type="string" required>
+              Card brand (`Traditional`, `Gold`, `Platinum`, etc.).
+            </ResponseField>
+            <ResponseField name="currency" type="string" required>
+              Card currency.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="detected_digits" type="string" required>
+          The digits used to detect the scheme details.
+        </ResponseField>
+        <ResponseField name="syntax" type="object" required>
+          <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="gaps" type="array" required>
+              The gaps variations of the card number.
+            </ResponseField>
+            <ResponseField name="lengths" type="array" required>
+              The possible lengths of the card number.
+            </ResponseField>
+            <ResponseField name="code" type="object" required>
+              <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="name" type="string" required>
+                  The name of the code (e.g: CVV).
+                </ResponseField>
+                <ResponseField name="size" type="integer" required>
+                  The number of digits in the code.
+                </ResponseField>
+              </Expandable>
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="bank" type="object" required>
+          <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="id" type="string" required>
+              Bank ID.
+            </ResponseField>
+            <ResponseField name="identifier" type="string" required>
+              Bank identifier.
+            </ResponseField>
+            <ResponseField name="name" type="string" required>
+              The official bank name.
+            </ResponseField>
+            <ResponseField name="city" type="string" required>
+              The city where the bank's headquarters are located.
+            </ResponseField>
+            <ResponseField name="url" type="string" required>
+              Bank URL of the official website.
+            </ResponseField>
+            <ResponseField name="phone" type="string" required>
+              Bank phone number for contact.
+            </ResponseField>
+            <ResponseField name="logo" type="string" required>
+              Bank logo URL (image).
+            </ResponseField>
+            <ResponseField name="latitude" type="string" required>
+              Bank latitude coordinates of the country where the bank is
+              located.
+            </ResponseField>
+            <ResponseField name="longitude" type="string" required>
+              Bank longitude coordinates of the country where the bank is
+              located.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+        <ResponseField name="country" type="object" required>
+          <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="alpha2" type="string" required>
+              Country code (in ISO 3166-1 alpha-2 format).
+            </ResponseField>
+            <ResponseField name="name" type="string" required>
+              The Country name.
+            </ResponseField>
+            <ResponseField name="code" type="string" required>
+              Country dialing code.
+            </ResponseField>
+            <ResponseField name="numeric" type="string" required>
+              Country numeric code.
+            </ResponseField>
+            <ResponseField name="emoji" type="string" required>
+              Country flag emoji.
+            </ResponseField>
+            <ResponseField name="continent" type="string" required>
+              Continent where the country is located.
+            </ResponseField>
+            <ResponseField name="languageCode" type="string" required>
+              Country language code (in ISO 639-1 format).
+            </ResponseField>
+            <ResponseField name="languageNative" type="string" required>
+              Country native language name.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="custom_rules_applied" type="array">
+      The custom rules applied to this request, [learn
+      more](/knowledge-base/custom-rules/overview).
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string" required>
+          The rule ID.
+        </ResponseField>
+        <ResponseField name="title" type="string" required>
+          The rule title.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+<ResponseField name="status" type="string" required>
+  Response status (`success`, or `error`).
+</ResponseField>
+<ResponseField name="executionTime" type="integer" required>
+  Time taken to process the data (in milliseconds).
+</ResponseField>

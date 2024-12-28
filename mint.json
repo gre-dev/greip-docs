@@ -126,6 +126,13 @@
       ]
     },
     {
+      "group": "Custom Rules",
+      "pages": [
+        "knowledge-base/custom-rules/overview",
+        "knowledge-base/custom-rules/testing-custom-rules"
+      ]
+    },
+    {
       "group": "Affiliate Program",
       "pages": [
         "knowledge-base/affiliates-program/becoming-affiliate-partner",

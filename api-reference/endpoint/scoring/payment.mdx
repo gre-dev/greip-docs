@@ -348,7 +348,8 @@ For more information please refer to [User Identifier](/options/user-identifier)
       }
     ],
     "rulesChecked": 21,
-    "rulesDetected": 6
+    "rulesDetected": 6,
+    "custom_rules_applied": []
   },
   "status": "success",
   "executionTime": 5
@@ -394,6 +395,19 @@ For more information please refer to [User Identifier](/options/user-identifier)
     </ResponseField>
     <ResponseField name="rulesDetected" type="integer" required>
       Total rules detected in the transaction.
+    </ResponseField>
+
+    <ResponseField name="custom_rules_applied" type="array">
+      The custom rules applied to this request, [learn
+      more](/knowledge-base/custom-rules/overview).
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string" required>
+          The rule ID.
+        </ResponseField>
+        <ResponseField name="title" type="string" required>
+          The rule title.
+        </ResponseField>
+      </Expandable>
     </ResponseField>
 
   </Expandable>

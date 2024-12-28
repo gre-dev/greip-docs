@@ -4,6 +4,14 @@ description: "This method enables you to validate International Bank Account Num
 api: "GET /lookup/iban"
 ---
 
+### Overview
+
+The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
+
+One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
+
+For example, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.
+
 ### Query Parameters
 
 <ParamField
@@ -97,7 +105,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       "length": "16",
       "isSEPA": true,
       "swiftOfficial": true
-    }
+    },
+    "custom_rules_applied": []
   },
   "status": "success",
   "executionTime": 1
@@ -123,60 +132,71 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       A boolean value that you can rely on to determine if the IBAN is valid or not.
     </ResponseField>
     <ResponseField name="formats" type="object" required>
-        <Expandable title="properties" defaultOpen={true}>
-            <ResponseField name="machine" type="string" required>
+      <Expandable title="properties" defaultOpen={true}>
+          <ResponseField name="machine" type="string" required>
             Machine format of the IBAN.
-            </ResponseField>
-            <ResponseField name="human" type="string" required>
+          </ResponseField>
+          <ResponseField name="human" type="string" required>
             Human-readable format of the IBAN.
-            </ResponseField>
-            <ResponseField name="obfuscated" type="string" required>
+          </ResponseField>
+          <ResponseField name="obfuscated" type="string" required>
             Obfuscated format of the IBAN.
-            </ResponseField>
-        </Expandable>
+          </ResponseField>
+      </Expandable>
     </ResponseField>
     <ResponseField name="country" type="object" required>
-        <Expandable title="properties" defaultOpen={true}>
-            <ResponseField name="name" type="string" required>
+      <Expandable title="properties" defaultOpen={true}>
+          <ResponseField name="name" type="string" required>
             Country name where the issuing bank is located.
-            </ResponseField>
-            <ResponseField name="IANA" type="string" required>
+          </ResponseField>
+          <ResponseField name="IANA" type="string" required>
             The [IANA](https://en.wikipedia.org/wiki/Internet_Assigned_Numbers_Authority) of the country.
-            </ResponseField>
-            <ResponseField name="ISO3166" type="string" required>
+          </ResponseField>
+          <ResponseField name="ISO3166" type="string" required>
             Country code in `ISO3166` format.
-            </ResponseField>
-            <ResponseField name="currency" type="string" required>
+          </ResponseField>
+          <ResponseField name="currency" type="string" required>
             Currency of the country.
-            </ResponseField>
-            <ResponseField name="centralBank" type="string" required>
-                <Expandable title="properties" defaultOpen={true}>
-                    <ResponseField name="name" type="string" required>
-                    The name of the central bank of the issuing country.
-                    </ResponseField>
-                    <ResponseField name="url" type="string" required>
-                    The URL of the central bank of the issuing country.
-                    </ResponseField>
-                </Expandable>
-            </ResponseField>
-            <ResponseField name="membership" type="string" required>
+          </ResponseField>
+          <ResponseField name="centralBank" type="string" required>
+            <Expandable title="properties" defaultOpen={true}>
+              <ResponseField name="name" type="string" required>
+                The name of the central bank of the issuing country.
+              </ResponseField>
+              <ResponseField name="url" type="string" required>
+                The URL of the central bank of the issuing country.
+              </ResponseField>
+            </Expandable>
+          </ResponseField>
+          <ResponseField name="membership" type="string" required>
             Membership type of the bank.
-            </ResponseField>
-            <ResponseField name="isEU" type="boolean" required>
+          </ResponseField>
+          <ResponseField name="isEU" type="boolean" required>
             Determines whether the user is located within the European Union (EU) and is relevant for processing transactions or validations specific to EU countries.
-            </ResponseField>
-            <ResponseField name="length" type="string" required>
+          </ResponseField>
+          <ResponseField name="length" type="string" required>
             IBAN length in this country.
-            </ResponseField>
-            <ResponseField name="isSEPA" type="boolean" required>
+          </ResponseField>
+          <ResponseField name="isSEPA" type="boolean" required>
             Indicates whether the IBAN belongs to a country participating in the Single Euro Payments Area (SEPA)
-            </ResponseField>
-            <ResponseField name="swiftOfficial" type="boolean" required>
+          </ResponseField>
+          <ResponseField name="swiftOfficial" type="boolean" required>
             Typically indicates whether the IBAN corresponds to an official institution or entity that is part of the SWIFT network, which facilitates international financial transactions.
-            </ResponseField>
-        </Expandable>
+          </ResponseField>
+      </Expandable>
     </ResponseField>
-
+    <ResponseField name="custom_rules_applied" type="array">
+      The custom rules applied to this request, [learn
+      more](/knowledge-base/custom-rules/overview).
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string" required>
+          The rule ID.
+        </ResponseField>
+        <ResponseField name="title" type="string" required>
+          The rule title.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
   </Expandable>
   <ResponseField name="status" type="string" required>
     The response status.
@@ -188,11 +208,3 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     Time spent in milliseconds to process the data.
   </ResponseField>
 </ResponseField>
-
-## Overview
-
-The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
-
-One of the most common and critical use cases of this method is to detect and prevent fraud payments in your app or website. This is an essential task for any business that accepts online payments, as fraud can lead to significant financial losses and reputational damage.
-
-For example, if you notice a user from the UK purchasing large amounts of your product, and the card used for payment is issued by a bank located in the US, this could be a red flag. This may indicate that the user is using a stolen or fraudulent card to complete the checkout process. By flagging such transactions for review or rejection, you can prevent fraud and protect your business from financial loss.

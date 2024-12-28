@@ -93,7 +93,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
   "data": {
     "carrier": "",
     "reason": "Invalid phone number structure.",
-    "isValid": false
+    "isValid": false,
+    "custom_rules_applied": []
   },
   "status": "success",
   "executionTime": 1
@@ -125,6 +126,19 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
       A boolean value that you can rely on to determine if the phone number is 100% safe & valid or not.
+    </ResponseField>
+
+    <ResponseField name="custom_rules_applied" type="array">
+      The custom rules applied to this request, [learn
+      more](/knowledge-base/custom-rules/overview).
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string" required>
+          The rule ID.
+        </ResponseField>
+        <ResponseField name="title" type="string" required>
+          The rule title.
+        </ResponseField>
+      </Expandable>
     </ResponseField>
 
   </Expandable>

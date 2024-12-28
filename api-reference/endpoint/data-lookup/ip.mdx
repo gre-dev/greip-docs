@@ -184,8 +184,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       "isTor": false,
       "isBot": false,
       "isRelay": false,
-      "isHosting": true
-    }
+      "isHosting": true,
+      "blacklisted": false
+    },
+    "custom_rules_applied": []
   },
   "status": "success",
   "executionTime": 4
@@ -439,7 +441,23 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
         <ResponseField name="isHosting" type="boolean" required>
           Indicates if the IP address belong to a hosting provider.
         </ResponseField>
+        <ResponseField name="blacklisted" type="boolean">
+          Indicates if the IP address is blacklisted due to applying [custom
+          rules](/knowledge-base/custom-rules/overview).
+        </ResponseField>
       </Expandable>
+      <ResponseField name="custom_rules_applied" type="array">
+        The custom rules applied to this request, [learn
+        more](/knowledge-base/custom-rules/overview).
+        <Expandable title="properties" defaultOpen={true}>
+          <ResponseField name="id" type="string" required>
+            The rule ID.
+          </ResponseField>
+          <ResponseField name="title" type="string" required>
+            The rule title.
+          </ResponseField>
+        </Expandable>
+      </ResponseField>
     </ResponseField>
   </Expandable>
   <ResponseField name="status" type="string" required>
