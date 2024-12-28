@@ -54,12 +54,15 @@ When a custom rule is applied to an API request, the custom rule ID will be retu
     "sample_property": "sample_value",
     "another_property": "another_value",
 
-    "custom_rules_applied": [
-      {
-        "id": "CR104",
-        "message": "Block all payments from specific email address or phone number"
-      }
-    ]
+    "custom_rules_applied": {
+      "total": 1,
+      "rules": [
+        {
+          "id": "CR104",
+          "message": "Block all payments from specific email address or phone number"
+        }
+      ]
+    }
   }
 }
 ```

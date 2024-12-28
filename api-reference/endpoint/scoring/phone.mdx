@@ -94,7 +94,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "carrier": "",
     "reason": "Invalid phone number structure.",
     "isValid": false,
-    "custom_rules_applied": []
+    "custom_rules_applied": {
+      "total": 0,
+      "rules": []
+    }
   },
   "status": "success",
   "executionTime": 1
@@ -128,15 +131,24 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       A boolean value that you can rely on to determine if the phone number is 100% safe & valid or not.
     </ResponseField>
 
-    <ResponseField name="custom_rules_applied" type="array">
+    <ResponseField name="custom_rules_applied" type="object">
       The custom rules applied to this request, [learn
       more](/knowledge-base/custom-rules/overview).
       <Expandable title="properties" defaultOpen={true}>
-        <ResponseField name="id" type="string" required>
-          The rule ID.
+        <ResponseField name="total" type="integer" required>
+          The total number of custom rules applied to this request.
         </ResponseField>
-        <ResponseField name="title" type="string" required>
-          The rule title.
+        <ResponseField name="rules" type="object" required>
+          The custom rules applied to this request, [learn
+          more](/knowledge-base/custom-rules/overview).
+          <Expandable title="properties" defaultOpen={true}>
+            <ResponseField name="id" type="string" required>
+              The rule ID as shown in the dashboard (e.g: `CR104`).
+            </ResponseField>
+            <ResponseField name="title" type="string" required>
+              The rule title you set when creating the rule.
+            </ResponseField>
+          </Expandable>
         </ResponseField>
       </Expandable>
     </ResponseField>
