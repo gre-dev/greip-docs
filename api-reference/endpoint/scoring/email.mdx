@@ -84,6 +84,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "isFree": true,
     "isRoleBased": false,
     "isValid": false,
+    "isDisposable": false,
     "email": "test@gmail.com",
     "custom_rules_applied": {
       "total": 0,
@@ -127,6 +128,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
       A boolean value that you can rely on to determine if the email address is 100% safe & valid or not.
+    </ResponseField>
+    <ResponseField name="isDisposable" type="boolean" required>
+      Indicates whether the email address is a disposable email address (also known as Temporary Email Addresses).
     </ResponseField>
 
     <ResponseField name="custom_rules_applied" type="object">
