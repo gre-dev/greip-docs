@@ -162,6 +162,11 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     <ResponseField name="isValid" type="boolean" required>
       Validation result (`true` or `false`).
     </ResponseField>
+    <ResponseField name="blacklisted" type="boolean" required>
+      Indicates if the BIN is blacklisted due to applying [custom
+      rules](/knowledge-base/custom-rules/overview) or were found in one of your
+      blacklists.
+    </ResponseField>
     <ResponseField name="bin" type="string" required>
       The BIN/IIN of the card you passed in the request.
     </ResponseField>

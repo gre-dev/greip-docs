@@ -137,9 +137,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
         <ResponseField name="isHosting" type="boolean" required>
           Indicates if the IP address belong to a hosting provider.
         </ResponseField>
-        <ResponseField name="blacklisted" type="boolean">
+        <ResponseField name="blacklisted" type="boolean" required>
           Indicates if the IP address is blacklisted due to applying [custom
-          rules](/knowledge-base/custom-rules/overview).
+          rules](/knowledge-base/custom-rules/overview) or were found in one of
+          your blacklists.
         </ResponseField>
       </Expandable>
       <ResponseField name="custom_rules_applied" type="object">
