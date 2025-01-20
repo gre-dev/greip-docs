@@ -126,6 +126,10 @@
       ]
     },
     {
+      "group": "Blacklists",
+      "pages": ["knowledge-base/blacklists/overview"]
+    },
+    {
       "group": "Custom Rules",
       "pages": [
         "knowledge-base/custom-rules/overview",

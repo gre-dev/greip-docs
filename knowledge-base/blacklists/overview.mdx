@@ -1,0 +1,169 @@
+---
+title: "Overview"
+description: "Block lists of IP addresses, emails, email domains, customer IDs, customer IP addresses, card BINs, or card countries."
+icon: "circle-info"
+---
+
+Blacklists allow you to block specific IP addresses, emails, email domains, customer IDs, customer IP addresses, card BINs, or card countries. This guide provides an overview of the blacklist feature, its benefits, and how to create and manage blacklists in Greip.
+
+## Adding a blacklist
+
+To add a new blacklist, follow these steps:
+
+<Steps>
+  <Step title="First Step">
+    Go to the [Blacklists page](https://dashboard.greip.io/blacklists) from the
+    account dashboard.
+  </Step>
+  <Step title="Second Step">
+    Click on the 'Add new' button from the top right corner of the page to
+    create a new blacklist.
+  </Step>
+  <Step title="Third Step">
+    Give it a title that describes the list. This will help you identify the
+    rule later.
+  </Step>
+  <Step title="Fourth Step">
+    Choose the type of blacklist you want to create.
+  </Step>
+  <Step title="Fifth Step">
+    Click the "Add blacklist" button to save the new blacklist.
+  </Step>
+  <Step title="Sixth Step">
+    Click on the name of the the blacklist you just created to add values to it
+    (e.g: IP addresses, emails, etc.).
+  </Step>
+</Steps>
+
+Once you have added values to a blacklist, it will be considered immediately when you use the API.
+
+## Sample response with a blacklist detection
+
+When the speicified value is found in one of your blacklists, the API will set the `blacklisted` property to `true` in the response. Here is a sample response:
+
+<CodeGroup>
+
+```json BIN Lookup
+{
+  "data": {
+    "blacklisted": true
+    // ...
+  }
+}
+```
+
+```json Geoip, IP Lookup
+{
+  "data": {
+    // ...
+    "security": {
+      // ...
+      "blacklisted": false
+    }
+  }
+}
+```
+
+```json IP Reputation
+{
+  "data": {
+    // ...
+    "threats": {
+      // ...
+      "blacklisted": true
+    }
+  }
+}
+```
+
+```json Email Scoring
+{
+  "data": {
+    // ...
+    "blacklisted": false
+  }
+}
+```
+
+```json Phone Scoring
+{
+  "data": {
+    // ...
+    "blacklisted": false
+  }
+}
+```
+
+</CodeGroup>
+
+## Definitions of blacklist types
+
+The following are the types of blacklists you can create in Greip:
+
+<AccordionGroup>
+  <Accordion title="IP Addresses">
+    This type can be used to blacklist IP addresses and takes effect in the following endpoints:
+
+    - IP Geolocation
+    - IP Lookup
+    - Bulk IP Lookup
+    - IP Reputation
+    - Payment Fraud Detection
+
+    Sample value: `1.1.1.1`
+
+  </Accordion>
+  <Accordion title="Email addresses">
+    This type can be used to blacklist email addresses and takes effect in the following endpoints:
+
+    - Email Scoring
+    - Payment Fraud Detection
+
+    Sample value: `name@domain.com`
+
+  </Accordion>
+  <Accordion title="Email domains">
+    This type can be used to blacklist email domains and takes effect in the following endpoints:
+
+    - Email Scoring
+    - Payment Fraud Detection
+
+    Sample value: `domain.com`
+
+  </Accordion>
+  <Accordion title="Phone numbers">
+    This type can be used to blacklist phone numbers and takes effect in the following endpoints:
+
+    - Phone Scoring
+    - Payment Fraud Detection
+
+    Sample value: `1234567890`
+
+    <Note>The phone number should not have a + sign or zero at the beginning. And make sure to include the country dial code.</Note>
+
+  </Accordion>
+  <Accordion title="Customer IDs">
+    This type can be used to blacklist customer IDs and takes effect in the following endpoints:
+
+    - Payment Fraud Detection
+
+  </Accordion>
+  <Accordion title="Card BINs">
+    This type can be used to blacklist card BINs and takes effect in the following endpoints:
+
+    - BIN Lookup
+    - Payment Fraud Detection
+
+    Sample value: `456789`
+
+  </Accordion>
+  <Accordion title="Card countries">
+    This type can be used to blacklist card countries and takes effect in the following endpoints:
+
+    - BIN Lookup
+    - Payment Fraud Detection
+
+    Sample value: `US`
+
+  </Accordion>
+</AccordionGroup>
