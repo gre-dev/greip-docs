@@ -1,0 +1,88 @@
+---
+title: "API Policy"
+description: "Greip API Updates & Deprecation Policy"
+icon: "badge-check"
+---
+
+## 1. Overview
+
+This policy outlines Greip’s approach to API updates, versioning, and deprecation. It ensures a smooth transition for developers when changes are introduced and provides clear guidelines on how long older versions will be supported before they are phased out.
+
+By using the Greip API, you agree to stay informed about updates and adjust your integration accordingly to maintain compatibility.
+
+## 2. API Versioning & Updates
+
+Greip follows a versioned API approach to maintain stability while introducing improvements. Versions are structured as:
+
+```
+v[Major].[Minor].[Patch]  (Example: v1.2.3)
+```
+
+- Major Updates (vX.0.0)
+  - Introduce significant changes, including breaking changes that may require code adjustments.
+  - Announced at least 2 months before deprecation of the previous major version.
+- Minor Updates (vX.Y.0)
+  - Add new features or improvements without breaking existing functionality.
+  - Recommended but not mandatory for users to upgrade immediately.
+- Patch Updates (vX.Y.Z)
+  - Contain bug fixes, security enhancements, and performance optimizations.
+  - Automatically applied and require no action unless otherwise stated.
+
+Developers should integrate with the latest stable version to benefit from performance, security, and feature improvements.
+
+## 3. Deprecation & Sunset Policy
+
+To ensure long-term reliability, Greip may deprecate older API versions when necessary. The deprecation process follows these steps:
+
+### 3.1 Deprecation Announcement
+
+- Deprecation notices will be communicated via:
+- Greip API Documentation (docs.greip.io)
+- Email notifications (for registered users with active API keys)
+- Dashboard alerts (if applicable)
+- The notice period for deprecation depends on the impact of the change:
+- Major version deprecation: Minimum 2 months notice before end-of-life.
+- Minor version deprecation: Minimum 2 months notice.
+- Patch versions are not deprecated individually unless a security issue arises.
+
+### 3.2 Sunset Phase (End-of-Life)
+
+- After the deprecation period, the API version will be officially sunset and no longer accessible.
+- Requests to deprecated versions may return HTTP 410 (Gone) or be redirected to the latest version if possible.
+- API keys using outdated versions will not be disabled but will no longer work with the deprecated endpoints.
+
+## 4. Mandatory Migrations
+
+Certain updates may require developers to migrate to a newer API version. This happens when:
+
+- Security vulnerabilities exist in the deprecated version.
+- Underlying technology dependencies are no longer supported.
+- A major architectural change is introduced.
+
+Developers are expected to proactively update their integrations to avoid disruptions. Greip will provide migration guides and technical support during transitions.
+
+## 5. Backward Compatibility & Grace Periods
+
+- Non-breaking changes (e.g., new parameters, additional fields) will be introduced without affecting existing integrations.
+- Breaking changes (e.g., removal of fields, altered response formats) will be announced in advance, and a grace period will be provided.
+- Deprecated endpoints may remain operational in “Legacy Mode” for an extended time before final removal.
+
+## 6. Testing New Versions
+
+- Developers can test new versions in a sandbox environment before full migration.
+- Greip will provide changelogs and migration documentation for major updates.
+
+## 7. Support for Deprecated Versions
+
+- Once an API version reaches its end-of-life (EOL), it will no longer receive bug fixes, security patches, or support.
+- Paid enterprise users may request extended support for deprecated versions under a separate agreement.
+
+## 8. Staying Updated
+
+To ensure a seamless experience, developers should:
+
+- ✅ Subscribe to API update notifications via their Greip dashboard.
+- ✅ Regularly check the [API Changelog](https://changelog.greip.io/) for upcoming changes.
+- ✅ Follow best practices for version handling in their implementation.
+
+For any questions regarding API updates and deprecation, contact [info@greip.io](mailto:info@greip.io).

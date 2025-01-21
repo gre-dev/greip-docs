@@ -75,6 +75,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
+        "api-policy",
         "authentication",
         "https-support",
         "error-codes",
