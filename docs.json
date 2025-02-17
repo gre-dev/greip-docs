@@ -1,0 +1,285 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Greip API Documentation",
+  "colors": {
+    "primary": "#008CFF",
+    "light": "#008CFF",
+    "dark": "#008CFF"
+  },
+  "favicon": "/favicon-1.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "api-policy",
+              "authentication",
+              "https-support",
+              "error-codes",
+              "usage-limits"
+            ]
+          },
+          {
+            "group": "API Features",
+            "pages": [
+              "options/customize-modules",
+              "options/response-format",
+              "options/localization",
+              "options/development-environment",
+              "options/user-identifier",
+              "options/jsonp-callback",
+              "options/vpn-proxy-detection"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Data Lookup",
+            "pages": [
+              "api-reference/endpoint/data-lookup/geoip",
+              "api-reference/endpoint/data-lookup/ip",
+              "api-reference/endpoint/data-lookup/bulk-ip",
+              "api-reference/endpoint/data-lookup/asn",
+              "api-reference/endpoint/data-lookup/iban",
+              "api-reference/endpoint/data-lookup/bin",
+              "api-reference/endpoint/data-lookup/country",
+              "api-reference/endpoint/data-lookup/free-get-ip-method"
+            ]
+          },
+          {
+            "group": "Risk Scoring",
+            "pages": [
+              "api-reference/endpoint/scoring/ip-reputation",
+              "api-reference/endpoint/scoring/email",
+              "api-reference/endpoint/scoring/phone",
+              "api-reference/endpoint/scoring/profanity",
+              "api-reference/endpoint/scoring/payment"
+            ]
+          },
+          {
+            "group": "Account Management",
+            "pages": ["api-reference/endpoint/account/users/delete"]
+          }
+        ]
+      },
+      {
+        "tab": "Knowledge Base",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["knowledge-base/getting-started/introduction"]
+          },
+          {
+            "group": "Account Management",
+            "pages": [
+              "knowledge-base/account-management/webhooks",
+              "knowledge-base/account-management/obtaining-api-key",
+              "knowledge-base/account-management/protecting-your-api-key",
+              "knowledge-base/account-management/enabling-2fa",
+              "knowledge-base/account-management/manage-authorized-devices",
+              "knowledge-base/account-management/upgrading-your-account",
+              "knowledge-base/account-management/downloading-invoices",
+              "knowledge-base/account-management/account-deletion"
+            ]
+          },
+          {
+            "group": "Events & Alerts",
+            "pages": [
+              "knowledge-base/events-and-alerts/overview",
+              "knowledge-base/events-and-alerts/filtering",
+              "knowledge-base/events-and-alerts/exporting-events",
+              "knowledge-base/events-and-alerts/view-event-details"
+            ]
+          },
+          {
+            "group": "Monitoring Capabilities",
+            "pages": [
+              "knowledge-base/monitoring-capabilities/subscription-usage-tracking",
+              "knowledge-base/monitoring-capabilities/real-time-threat-monitoring"
+            ]
+          },
+          {
+            "group": "Blacklists",
+            "pages": ["knowledge-base/blacklists/overview"]
+          },
+          {
+            "group": "Custom Rules",
+            "pages": [
+              "knowledge-base/custom-rules/overview",
+              "knowledge-base/custom-rules/testing-custom-rules"
+            ]
+          },
+          {
+            "group": "Affiliate Program",
+            "pages": [
+              "knowledge-base/affiliates-program/becoming-affiliate-partner",
+              "knowledge-base/affiliates-program/payout-settings"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "knowledge-base/integrations/slack",
+              "knowledge-base/integrations/zapier",
+              "knowledge-base/integrations/ifttt"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Packages & Libraries",
+        "groups": [
+          {
+            "group": "Packages & Libraries",
+            "pages": [
+              "packages-and-libraries/list-of-packages-and-libraries",
+              "packages-and-libraries/other-resources"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Integrations",
+          "href": "https://greip.io/integrations/all",
+          "icon": "gears"
+        },
+        {
+          "anchor": "Changelog",
+          "href": "https://changelog.greip.io",
+          "icon": "clock-rotate-left"
+        },
+        {
+          "anchor": "Server Status",
+          "href": "https://status.greip.io",
+          "icon": "signal-bars"
+        },
+        {
+          "anchor": "Articles",
+          "href": "https://greip.io/blog",
+          "icon": "newspaper"
+        },
+        {
+          "anchor": "FAQ",
+          "href": "https://greip.io/faq",
+          "icon": "circle-question"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "api": {
+    "openapi": "https://greip.io/OpenAPI.json",
+    "playground": {
+      "display": "interactive"
+    },
+    "mdx": {
+      "server": "https://greipapi.com",
+      "auth": {
+        "method": "bearer"
+      }
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "background": {
+    "image": "/images/background-light.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Community",
+        "href": "https://join.slack.com/t/greip-community/shared_invite/zt-2sxdyaaj8-418mMcVlekO6sNhKOAGWpg"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.greip.io/home"
+    }
+  },
+  "footer": {
+    "socials": {
+      "linkedin": "https://www.linkedin.com/company/greip",
+      "github": "https://github.com/Greipio",
+      "website": "https://greip.io",
+      "slack": "https://join.slack.com/t/greip-community/shared_invite/zt-2sxdyaaj8-418mMcVlekO6sNhKOAGWpg"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/geoip",
+      "destination": "/api-reference/endpoint/data-lookup/geoip"
+    },
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/ip-lookup",
+      "destination": "/api-reference/endpoint/data-lookup/ip"
+    },
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/bulk-lookup",
+      "destination": "/api-reference/endpoint/data-lookup/bulk-ip"
+    },
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/asn-lookup",
+      "destination": "/api-reference/endpoint/data-lookup/asn"
+    },
+    {
+      "source": "/api-reference/endpoint/payment-fraud/iban-validation",
+      "destination": "/api-reference/endpoint/data-lookup/iban"
+    },
+    {
+      "source": "/api-reference/endpoint/payment-fraud/bin-lookup",
+      "destination": "/api-reference/endpoint/data-lookup/bin"
+    },
+    {
+      "source": "/api-reference/endpoint/other-services/country-data",
+      "destination": "/api-reference/endpoint/data-lookup/country"
+    },
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/free-get-ip-method",
+      "destination": "/api-reference/endpoint/data-lookup/free-get-ip-method"
+    },
+    {
+      "source": "/api-reference/endpoint/ip-geolocation/ip-threats",
+      "destination": "/api-reference/endpoint/scoring/ip-reputation"
+    },
+    {
+      "source": "/api-reference/endpoint/data-validation/email-lookup",
+      "destination": "/api-reference/endpoint/scoring/email"
+    },
+    {
+      "source": "/api-reference/endpoint/data-validation/phone-lookup",
+      "destination": "/api-reference/endpoint/scoring/phone"
+    },
+    {
+      "source": "/api-reference/endpoint/other-services/profanity-detection",
+      "destination": "/api-reference/endpoint/scoring/profanity"
+    },
+    {
+      "source": "/api-reference/endpoint/payment-fraud/payment-fraud-prevention",
+      "destination": "/api-reference/endpoint/scoring/payment"
+    },
+    {
+      "source": "/dashboard-guides/:slug*",
+      "destination": "/knowledge-base/:slug*"
+    },
+    {
+      "source": "/packages-and-libraries/postman-collection",
+      "destination": "/packages-and-libraries/other-resources"
+    }
+  ]
+}
