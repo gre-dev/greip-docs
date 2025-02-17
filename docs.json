@@ -167,7 +167,12 @@
         {
           "anchor": "Articles",
           "href": "https://greip.io/blog",
-          "icon": "newspaper"
+          "icon": "rss"
+        },
+        {
+          "anchor": "Dictionary",
+          "href": "https://greip.io/blog/section/Dictionary",
+          "icon": "book-open"
         },
         {
           "anchor": "FAQ",
