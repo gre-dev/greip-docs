@@ -1,0 +1,35 @@
+---
+title: "Chargeback Fraud"
+sidebarTitle: "Chargeback Fraud"
+description: "Learn how Greip can help you detect and prevent chargeback fraud in real-time"
+icon: "sack-xmark"
+iconType: "duotone"
+---
+
+## Overview
+
+Chargeback fraud is a type of fraud that occurs when a customer disputes a legitimate transaction and requests a chargeback from their bank or credit card company. Chargeback fraud can have serious financial consequences for businesses, as it can result in lost revenue, increased chargeback fees, and damage to the business's reputation. Chargeback fraud is a common problem for online merchants, as it can be difficult to detect and prevent.
+
+## What is Chargeback Fraud?
+
+Chargeback fraud occurs when a customer disputes a legitimate transaction and requests a chargeback from their bank or credit card company. This can happen for a variety of reasons, such as the customer claiming that they did not receive the goods or services they paid for, that the goods or services were defective, or that the transaction was unauthorized. Chargeback fraud can be difficult to detect and prevent, as fraudsters often use stolen credit card information or other fraudulent means to make the transaction appear legitimate.
+
+Greip uses advanced machine learning algorithms to detect and prevent chargeback fraud in real-time. It analyzes transaction data and customer behavior to identify suspicious activity and stop fraud before it happens. Greip is designed to be easy to integrate into your existing systems and can be customized to meet the specific needs of your business.
+
+## The Integration Logic
+
+Greip provides multiple approaches to empower you to detect and prevent chargeback fraud in real-time. Which approach you choose depends on your business needs and the level of fraud prevention you require. Here are some of the key features of Greip:
+
+- **Pre-purchase Fraud Detection**: Greip can analyze user behavior and transaction data to identify suspicious activity before a purchase is made. This can help prevent fraudulent transactions from occurring in the first place and it can be done through the following endpoints:
+  1. [Payment Fraud Detection](/api-reference/endpoint/scoring/payment): This endpoint allows you to score a transaction based on the likelihood of fraud. You can use this score to determine whether to accept or reject the transaction. When using this endpoint, try to provide as much information as possible about the transaction, so Greip can provide a comprehensive scoring result.
+  2. [IP Reputation](/api-reference/endpoint/scoring/ip-reputation): This endpoint allows you to check the reputation of an IP address to determine whether it is associated with fraudulent activity.
+  3. [IBAN Lookup](/api-reference/endpoint/data-lookup/iban): This endpoint allows you to validate an IBAN number to ensure that it is valid.
+  4. [Email Risk Scoring](/api-reference/endpoint/scoring/email): This endpoint allows you to score the user email address based on the likelihood of fraud.
+  5. [Phone Risk Scoring](/api-reference/endpoint/scoring/phone): This endpoint allows you to score the user phone number based on the likelihood of fraud.
+- **Post-purchase Fraud Detection**: Greip can also analyze transaction data after a purchase is made to identify suspicious activity. This can help you detect and prevent fraud in real-time. These can be done through our [BIN/IIN Lookup](/api-reference/endpoint/data-lookup/bin) endpoint.
+  {" "}
+  <Tip>
+    A common approuch is to use the BIN/IIN Lookup endpoint to check the card
+    issuer country and compare it with the user's IP address country. If the two
+    countries do not match, it could be a sign of fraud.
+  </Tip>

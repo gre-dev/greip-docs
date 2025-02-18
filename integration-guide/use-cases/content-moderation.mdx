@@ -1,0 +1,78 @@
+---
+title: "Content Moderation"
+sidebarTitle: "Content Moderation"
+description: "Learn how Greip can help you automate content moderation and protect your platform from harmful content."
+icon: "face-swear"
+iconType: "duotone"
+---
+
+## Overview
+
+Content moderation is the process of monitoring and filtering user-generated content to ensure it complies with community guidelines and legal requirements. It is essential for protecting users from harmful content, maintaining a positive user experience, and complying with regulations.
+
+Greip provides advanced content moderation tools that use machine learning (ML) algorithms to automate the process and help you protect your platform from harmful content.
+
+## The Integration Logic
+
+### 1. Profanity Detection
+
+Endpoint: [`/scoring/profanity`](/api-reference/endpoint/scoring/profanity)
+
+**How it helps:**
+
+Detect offensive, inappropriate, or harmful language in user-generated content (e.g., comments, posts, messages).
+Identify and flag content containing profanity, hate speech, or other prohibited terms.
+Customize the response to either block the content, flag it for review, or notify moderators.
+
+**Key Parameters:**
+
+- `text`: The text to analyze.
+- `listBadWords`: Set to `yes` to return a list of detected bad words.
+- `scoreOnly`: Set to `yes` to return only the risk score (useful for quick filtering).
+
+**Example Use Case:**
+
+A user submits a comment: "This is a terrible product, and I hate it!"
+Use the [`/scoring/profanity`](/api-reference/endpoint/scoring/profanity) endpoint to analyze the text.
+If the text contains profanity or exceeds a risk threshold, flag it for review or automatically reject it.
+
+### 2. IP Reputation and Threat Intelligence
+
+Endpoints: `/lookup/ip`, `/lookup/ip/threats`
+
+**How it helps:**
+
+Identify users with high-risk IP addresses (e.g., VPNs, proxies, Tor nodes, Bots, Hosting) who may be attempting to bypass content moderation filters.
+Detect IPs associated with malicious activity or spamming.
+
+**Example Use Case:**
+
+A user with a high-risk IP submits multiple posts in a short time frame.
+Use Greip to check the IP’s reputation and flag the user for further review.
+
+### 3. Email and Phone Validation
+
+Endpoints: [`/scoring/email`](/api-reference/endpoint/scoring/email), [`/scoring/phone`](/api-reference/endpoint/scoring/phone)
+**How it helps:**
+
+Detect disposable or temporary email addresses often used by spammers or trolls.
+Validate phone numbers to ensure they are legitimate and not associated with fraudulent activity.
+
+**Example Use Case:**
+
+A user signs up with a disposable email address (e.g., `temp@mailinator.com`).
+Use the [`/scoring/email`](/api-reference/endpoint/scoring/email) endpoint to flag the account for manual review or block it automatically.
+
+### 4. User Behavior Monitoring
+
+**How it helps:**
+
+Use the [User Identifier](/options/user-identifier) to track user activity and identify patterns of abusive behavior (e.g., repeated posting of inappropriate content).
+Combine Greip’s data with your application’s logic to detect and block repeat offenders.
+
+### 5. Customizable Response Formats
+
+**How it helps:**
+
+Use the format parameter to receive responses in your preferred format (e.g., JSON, XML).
+Integrate Greip’s content moderation features seamlessly into your application.

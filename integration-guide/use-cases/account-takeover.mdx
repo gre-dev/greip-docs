@@ -1,0 +1,32 @@
+---
+title: "Account Takeover"
+sidebarTitle: "Account Takeover"
+description: "Learn how Greip can help you detect and prevent account takeover fraud in real-time"
+icon: "user-shield"
+iconType: "duotone"
+---
+
+## Overview
+
+Account takeover fraud is a type of fraud that involves a fraudster gaining unauthorized access to a user's account. Once the fraudster has access to the account, they can make unauthorized transactions, steal personal information, and cause other types of harm. Account takeover fraud is a serious problem that can have significant financial and reputational consequences for businesses.
+
+## What is Account Takeover Fraud?
+
+Account takeover fraud occurs when a fraudster gains access to a user's account by stealing their login credentials. This can happen through a variety of methods, such as phishing attacks, malware, and social engineering. Once the fraudster has access to the account, they can use it to make unauthorized transactions, steal personal information, and cause other types of harm.
+
+Greip uses advanced machine learning algorithms to detect and prevent account takeover fraud in real-time. It analyzes user behavior and account activity to identify suspicious activity and stop fraud before it happens. Greip is designed to be easy to integrate into your existing systems and can be customized to meet the specific needs of your business.
+
+## The Integration Logic
+
+Greip provides multiple approaches to empower you to detect and prevent account takeover fraud in real-time. Which approach you choose depends on your business needs and the level of fraud prevention you require. Here are some of the key features of Greip:
+
+- **Pre-purchase Fraud Detection**: Greip can analyze user behavior and account activity to identify suspicious activity before an account takeover occurs. This can help prevent fraudsters from gaining unauthorized access to user accounts in the first place. It can be done through the following endpoints:
+  1. [IP Geolocation](/api-reference/endpoint/data-lookup/geoip): This endpoint allows you to determine the geolocation of an IP address to identify suspicious activity by comparing the user's location with the IP address location or by checking if the IP address is different from the user's usual location.
+  2. [IP Reputation](/api-reference/endpoint/scoring/ip-reputation): This endpoint allows you to check the reputation of an IP address to determine whether it is associated with fraudulent activity.
+- **Post-purchase Fraud Detection**: Greip can also analyze transaction data after a purchase is made to identify suspicious activity. This can help you detect and prevent fraud in real-time. These can be done through our [BIN/IIN Lookup](/api-reference/endpoint/data-lookup/bin) endpoint.
+  {" "}
+  <Tip>
+    A common approuch is to use the BIN/IIN Lookup endpoint to check the card
+    issuer country and compare it with the user's IP address country. If the two
+    countries do not match, it could be a sign of fraud.
+  </Tip>

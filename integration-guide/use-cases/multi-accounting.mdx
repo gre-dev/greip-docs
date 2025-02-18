@@ -1,0 +1,111 @@
+---
+title: "Multi-Accounting"
+sidebarTitle: "Multi-Accounting"
+description: "Learn how Greip can help you prevent multi-accounting in your application."
+icon: "face-viewfinder"
+iconType: "duotone"
+---
+
+## Ovewview
+
+Multi-accounting is a common problem in applications where users can create multiple accounts to gain an unfair advantage. Greip can help you prevent multi-accounting by identifying users who have multiple accounts and taking appropriate action.
+
+## The Integration Logic
+
+### 1. IP Geolocation and Threat Intelligence
+
+Endpoint: [`/geoip`](/api-reference/endpoint/data-lookup/geoip), [`/lookup/ip`](/api-reference/endpoint/data-lookup/ip), [`/lookup/ip/threats`](/api-reference/endpoint/scoring/ip-reputation)
+
+**How it helps:**
+
+Detect if multiple accounts are being created from the same IP address or a suspicious IP range.
+Identify high-risk IPs (e.g., VPNs, proxies, Tor nodes) that are commonly used for multi-accounting.
+Use the security module to check if the IP is associated with malicious activity.
+
+### 2. Device Fingerprinting
+
+Endpoint: [`/geoip`](/api-reference/endpoint/data-lookup/geoip) (with the device module)
+
+**How it helps:**
+
+Greip can provide device-related information (e.g., browser, OS, device type) that can be used to fingerprint devices.
+If multiple accounts are being created from the same device, it could indicate multi-accounting.
+
+### 3. Email and Phone Validation
+
+Endpoints: [`/scoring/email`](/api-reference/endpoint/scoring/email), [`/scoring/phone`](/api-reference/endpoint/scoring/phone)
+
+**How it helps:**
+
+Detect disposable or temporary email addresses (common in multi-accounting).
+Validate phone numbers to ensure they are legitimate and not reused across multiple accounts.
+Flag suspicious email domains or phone numbers associated with fraud.
+
+### 4. Payment Fraud Detection
+
+Endpoint: [`/scoring/payment`](/api-reference/endpoint/scoring/payment)
+
+**How it helps:**
+
+Analyze payment details (e.g., credit card, billing address) to detect patterns of multi-accounting.
+Identify if the same payment method is being used across multiple accounts.
+
+### 5. ASN and BIN Lookup
+
+Endpoints: [`/lookup/asn`](/api-reference/endpoint/data-lookup/asn), [/lookup/bin](/api-reference/endpoint/data-lookup/bin)
+
+**How it helps:**
+
+Detect if multiple accounts are being created from the same Autonomous System (ASN), which could indicate coordinated multi-accounting.
+Validate credit card BINs to ensure they are not being reused fraudulently.
+
+### 6. Profanity Detection
+
+Endpoint: [`/scoring/profanity`](/api-reference/endpoint/scoring/profanity)
+
+**How it helps:**
+
+Detect if users are creating accounts with offensive or suspicious usernames, which could indicate multi-accounting for abusive purposes.
+
+### 7. User Behavior Monitoring
+
+**How it helps:**
+
+Use the userID parameter to track requests and monitor user behavior across your platform.
+Combine Greip data with your application’s logic to detect patterns of multi-accounting (e.g., multiple accounts created in a short time frame).
+
+### Example Use Case: Multi-Accounting Detection
+
+<Steps>
+  <Step title="Step 1:">
+    When a user creates an account, collect their IP address, email, phone
+    number, and device information.
+  </Step>
+  <Step title="Step 2:">
+    Use Greip’s [`/geoip`](/api-reference/endpoint/data-lookup/geoip) and
+    [`/lookup/ip/threats`](/api-reference/endpoint/scoring/ip-reputation)
+    endpoints to check if the IP is high-risk (e.g., VPN, proxy, or Tor).
+  </Step>
+  <Step title="Step 3:">
+    Validate the email using
+    [`/scoring/email`](/api-reference/endpoint/scoring/email) to ensure it’s
+    valid, correct, and not disposable.
+  </Step>
+  <Step title="Step 4:">
+    Validate the phone number using
+    [`/scoring/phone`](/api-reference/endpoint/scoring/phone) to ensure it’s
+    legitimate and not disposable.
+  </Step>
+  <Step title="Step 5:">
+    Check if the same IP, email, or phone number has been used for other
+    accounts in your system.
+  </Step>
+  <Step title="Step 6:">
+    Use [`/scoring/payment`](/api-reference/endpoint/scoring/payment) to analyze
+    payment details for signs of fraud.
+  </Step>
+  <Step title="Step 7:">
+    Flag or block accounts that exhibit suspicious patterns (e.g., multiple
+    accounts from the same IP or device).
+  </Step>
+</Steps>

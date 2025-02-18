@@ -135,6 +135,31 @@
         ]
       },
       {
+        "tab": "Integration Guide",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "integration-guide/timeline",
+              "integration-guide/about-greip"
+            ]
+          },
+          {
+            "group": "Use cases",
+            "pages": [
+              "integration-guide/use-cases/payment-fraud",
+              "integration-guide/use-cases/chargeback-fraud",
+              "integration-guide/use-cases/account-takeover",
+              "integration-guide/use-cases/multi-accounting",
+              "integration-guide/use-cases/fake-accounts",
+              "integration-guide/use-cases/content-moderation",
+              "integration-guide/use-cases/web-personalization",
+              "integration-guide/use-cases/sms-fraud"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Packages & Libraries",
         "groups": [
           {
