@@ -80,19 +80,26 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 {
   "data": {
     "score": 3,
-    "reason": "Invalid email domain.",
-    "isFree": true,
-    "isRoleBased": false,
+    "reason": "Email domain is considered dangerous.",
     "isValid": false,
+    "isFree": false,
+    "isRoleBased": true,
     "isDisposable": false,
-    "email": "test@gmail.com",
-    "custom_rules_applied": {
-      "total": 0,
-      "rules": []
-    }
+    "blacklisted": false,
+    "email": "test@dangerous-domain.com",
+    "domain": {
+      "name": "dangerous-domain.com",
+      "is_dangerous": true,
+      "is_spf": false,
+      "is_dmarc": false,
+      "is_mx": false,
+      "is_bimi": false,
+      "created_at": "2025-02-05"
+    },
+    "custom_rules_applied": { "total": 0, "rules": [] }
   },
   "status": "success",
-  "executionTime": 10
+  "executionTime": 1
 }
 ```
 
@@ -131,6 +138,38 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="isDisposable" type="boolean" required>
       Indicates whether the email address is a disposable email address (also known as Temporary Email Addresses).
+    </ResponseField>
+    <ResponseField name="blacklisted" type="boolean" required>
+      Indicates if the email/domain is blacklisted due to applying [custom
+      rules](/knowledge-base/custom-rules/overview) or were found in one of your
+      blacklists.
+    </ResponseField>
+
+    <ResponseField name="domain" type="object">
+        The information associated with the domain name of the email address.
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="name" type="string" required>
+          The domain name (e.g: `gmail.com`).
+        </ResponseField>
+        <ResponseField name="is_dangerous" type="boolean|null" required>
+          Indicates if the domain is considered dangerous.
+        </ResponseField>
+        <ResponseField name="is_spf" type="boolean|null" required>
+          Indicates if the domain has a valid SPF record.
+        </ResponseField>
+        <ResponseField name="is_dmarc" type="boolean|null" required>
+          Indicates if the domain has a valid DMARC record.
+        </ResponseField>
+        <ResponseField name="is_mx" type="boolean|null" required>
+          Indicates if the domain has valid MX records.
+        </ResponseField>
+        <ResponseField name="is_bimi" type="boolean|null" required>
+          Indicates if the domain has a valid BIMI record.
+        </ResponseField>
+        <ResponseField name="created_at" type="string|null" required>
+          The date when the domain was created.
+        </ResponseField>
+      </Expandable>
     </ResponseField>
 
     <ResponseField name="custom_rules_applied" type="object">
