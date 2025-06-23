@@ -1,0 +1,148 @@
+---
+title: "Domain Lookup"
+description: "This method allows you to retrieve detailed information about a domain by providing its domain name in the request.\n\nThe API returns valuable data, such as the domain’s creation date, with some risk evaluation metrics."
+api: "GET /lookup/domain"
+---
+
+<Warning>
+  This endpoint still in beta stage, and it may change in the future. Currently,
+  helps you to look up a domain name that's already available in our automated
+  database. The domain names that are not available in our database will return
+  `null` values for all properties, but at the same time it will trigger the
+  automation system to start collecting data about the domain name, and it will
+  be available in the next 24 hours after the first request.
+</Warning>
+
+### Query Parameters
+
+<ParamField
+  query="domain"
+  type="string"
+  placeholder="The domain name"
+  required
+>
+  The fully qualified domain name (FQDN) to look up. [Learn more](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)
+
+Sample value: `example.com`
+
+</ParamField>
+
+<ParamField
+  query="format"
+  type="string"
+  default="JSON"
+  placeholder="Response format"
+>
+  The format command is used to get a response in a specific format.
+
+Expected values: `JSON`, `XML`, `CSV`, or `Newline`
+
+For more information please refer to [Response Format](/options/response-format).
+
+</ParamField>
+
+<ParamField
+  query="mode"
+  type="string"
+  default="live"
+  placeholder="Environment"
+>
+  The mode command is used to in the development stage to simulate the integration process before releasing it to the production environment.
+
+Expected values: `live`, or `test`.
+
+For more information please refer to [Development Environment](/options/development-environment).
+
+</ParamField>
+
+<ParamField
+  query="callback"
+  type="string"
+  placeholder="JSONP callback"
+>
+  The callback command can help you make the response as a JSONP format.
+
+Expected values: any name that can be used as a function name in Javascript, e.g: `myFunctionName`.
+
+For more information please refer to [JSONP Callback](/options/jsonp-callback).
+
+</ParamField>
+
+<ResponseExample>
+
+```json Success
+{
+  "data": {
+    "name": "dangerous-domain.com",
+    "is_dangerous": true,
+    "is_spf": false,
+    "is_dmarc": false,
+    "is_dkim": false,
+    "is_mx": false,
+    "is_bimi": false,
+    "created_at": "2025-02-05",
+    "is_new": true
+  },
+  "status": "success",
+  "executionTime": 0
+}
+```
+
+```json Error
+{
+  "status": "error",
+  "code": 101,
+  "type": "invalid_key",
+  "description": "The API Key is missing or invalid."
+}
+```
+
+</ResponseExample>
+
+### Response properties
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen={true}>
+    <ResponseField name="name" type="string" required>
+        The full domain name associated with the email address (for example, `gmail.com`).
+    </ResponseField>
+    <ResponseField name="is_dangerous" type="boolean|null" required>
+        Indicates whether the domain is flagged as dangerous or suspicious, which may suggest a higher risk of fraud or abuse.
+
+        <Warning>
+        If this property is set to `true`, the domain is considered high-risk or potentially malicious. As a result, the `isValid` property will also be `false`, indicating that the email address should not be trusted for critical communications or user registrations. It is strongly recommended to block or flag such email addresses in your application workflow.
+        </Warning>
+    </ResponseField>
+    <ResponseField name="is_spf" type="boolean|null" required>
+        Indicates whether the domain has a valid SPF (Sender Policy Framework) record, which helps prevent email spoofing.
+    </ResponseField>
+    <ResponseField name="is_dmarc" type="boolean|null" required>
+        Indicates whether the domain has a valid DMARC (Domain-based Message Authentication, Reporting, and Conformance) record, which helps protect against email phishing and spoofing.
+    </ResponseField>
+        <ResponseField name="is_dkim" type="boolean|null" required>
+        Indicates whether the domain has a valid DKIM (DomainKeys Identified Mail) record, which verifies the authenticity of the sender's domain.
+    </ResponseField>
+    <ResponseField name="is_mx" type="boolean|null" required>
+        Indicates whether the domain has valid MX (Mail Exchange) records, confirming that it is capable of receiving emails.
+    </ResponseField>
+    <ResponseField name="is_bimi" type="boolean|null" required>
+        Indicates whether the domain has a valid BIMI (Brand Indicators for Message Identification) record, which allows brand logos to be displayed in supported email clients.
+    </ResponseField>
+    <ResponseField name="created_at" type="string|null" required>
+        The date when the domain was first registered or created, if available.
+    </ResponseField>
+    <ResponseField name="is_new" type="boolean|null" required>
+        Indicates whether the domain is new or recently registered (registered within 1 year), which may affect its reputation and trustworthiness.
+    </ResponseField>
+
+  </Expandable>
+  <ResponseField name="status" type="string" required>
+    The response status.
+
+    Expected values: `success`, or `error`.
+
+  </ResponseField>
+  <ResponseField name="executionTime" type="integer" required>
+    Time spent in milliseconds to process the data.
+  </ResponseField>
+</ResponseField>

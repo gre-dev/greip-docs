@@ -7,6 +7,9 @@
     "light": "#008CFF",
     "dark": "#008CFF"
   },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
   "favicon": "/favicon-1.svg",
   "navigation": {
     "tabs": [
@@ -51,6 +54,7 @@
               "api-reference/endpoint/data-lookup/iban",
               "api-reference/endpoint/data-lookup/bin",
               "api-reference/endpoint/data-lookup/country",
+              "api-reference/endpoint/data-lookup/domain",
               "api-reference/endpoint/data-lookup/free-get-ip-method"
             ]
           },
