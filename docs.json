@@ -11,7 +11,8 @@
     "options": ["chatgpt", "claude", "copy", "view"]
   },
   "banner": {
-    "content": "🚀 Greip's API achieved **100%** uptime for the last 90 days."
+    "content": "🚀 Greip's API achieved **100%** uptime for the last 90 days, [learn more](https://status.greip.io/).",
+    "dismissible": true
   },
   "favicon": "/favicon-1.svg",
   "navigation": {
