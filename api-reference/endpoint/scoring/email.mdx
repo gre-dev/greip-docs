@@ -95,7 +95,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
       "is_dkim": false,
       "is_mx": false,
       "is_bimi": false,
-      "created_at": "2025-02-05"
+      "created_at": "2025-02-05",
+      "is_new": true
     },
     "custom_rules_applied": { "total": 0, "rules": [] }
   },
@@ -176,6 +177,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
         </ResponseField>
         <ResponseField name="created_at" type="string|null" required>
           The date when the domain was first registered or created, if available.
+        </ResponseField>
+        <ResponseField name="is_new" type="boolean|null" required>
+            Indicates whether the domain is new or recently registered (registered within 1 year), which may affect its reputation and trustworthiness.
         </ResponseField>
       </Expandable>
     </ResponseField>
