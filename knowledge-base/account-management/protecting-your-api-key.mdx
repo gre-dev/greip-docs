@@ -5,11 +5,22 @@ icon: "shield"
 iconType: "duotone"
 ---
 
+<Frame caption="Greip Dashboard – Protecting your API Key">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full rounded-xl"
+    src="https://vz-0866dab1-a77.b-cdn.net/2edc67cf-e6f1-4361-8af6-25fb35fb361e/playlist.m3u8"
+  ></video>
+</Frame>
+
 ## Overview
 
 In order to use this service you have to obtain an API Key (You will have it once you open a new account). This is the secret key that will be used to send the requests to our API.
 
-As we mentioned above, it's a SECRET KEY. So, you cannot share it with others.
+As we mentioned above, it's a **SECRET KEY**. So, you cannot share it with others.
 
 In some cases you may need to leave this key to the public. So, anyone can obtain and use it. In such cases, you have to limit the usage of this API Key to your authorized hosts (domain names and/or IP Addresses). So, let's dive into this:
 
@@ -21,15 +32,12 @@ In order to do that, you have complete the following steps:
 
 <Steps>
   <Step title="First Step">
-    Go to the [settings](https://dashboard.greip.io/settings) page of the account dashboard
+    Go to the [settings](https://dashboard.greip.io/settings) page of the
+    account dashboard
   </Step>
   <Step title="Second Step">
-    Under the 'Security settings' section, click on the 'Manage' button on the right side of the 'Authorised hosts' setting
-
-    <Frame caption="Greip Dashboard, updating the authorised hosts">
-    ![Greip Dashboard, updating the authorised hosts](/images/dashboard-authorised-hosts.png)
-    </Frame>
-
+    Under the 'Security settings' section, click on the 'Manage' button on the
+    right side of the 'Authorised hosts' setting
   </Step>
 </Steps>
 
@@ -42,6 +50,7 @@ E.g:
 
 ```diff
 + domain.com
++ sub.domain.com
 + 123.45.67.89
 ```
 
@@ -51,8 +60,7 @@ E.g:
 **Important Notes**
 
 1. If you use subdomains, then you have to list them all.
-2. Only IPv4 allowed to be listed here.
-3. If you use CloudFlare or any other service that using Proxy approach and you want to whitelist your server IP Address, then just add the real server IP Address to the 'Authorised Hosts'.
-4. If you leave the authorised hosts field empty, then **you're telling us that you want to allow all domains and IP addresses to use the API Key**.
+2. If you use CloudFlare or any other service that using Proxy approach and you want to whitelist your server IP Address, then just add the **real server IP address**.
+3. If you leave the authorised hosts field empty, then **you're telling us that you want to allow all domains and IP addresses to use the API Key**.
 
 </Warning>
