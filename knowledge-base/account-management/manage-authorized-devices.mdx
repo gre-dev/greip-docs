@@ -6,6 +6,17 @@ icon: "laptop-mobile"
 iconType: "duotone"
 ---
 
+<Frame caption="Greip Dashboard – Protecting your API Key">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full rounded-xl"
+    src="https://vz-0866dab1-a77.b-cdn.net/2edc67cf-e6f1-4361-8af6-25fb35fb361e/playlist.m3u8"
+  ></video>
+</Frame>
+
 You can manage the devices that are authorized to access your account. This feature is useful if you want to revoke access to a device that you no longer use or if you suspect that your account has been compromised.
 
 To manage authorized devices, follow these steps:
@@ -18,10 +29,6 @@ To manage authorized devices, follow these steps:
   <Step title="Second Step">
     Under the 'Security settings' section, click on the 'Manage' button on the
     right side of the "Authorized devices" setting as shown below:
-    <Frame caption="Greip Dashboard - Managing authorized devices">
-      ![Greip Dashboard - Managing authorized
-      devices](/images/authorized-devices.png)
-    </Frame>
   </Step>
   <Step title="Third Step">
     You will see a list of devices that are currently authorized to access your
@@ -29,3 +36,27 @@ To manage authorized devices, follow these steps:
     the device.
   </Step>
 </Steps>
+
+<Note>
+You can enter domain names and/or IP Addresses in this field.
+
+For example: let's say you want to send requests to the API from client-side using our JS Package and in the same time you're using our PHP Library to send request from the server-side. Then you have to add your domain name (where your client-side is hosted) and your server IP Address (where you use the PHP Library).
+
+E.g:
+
+```diff
++ domain.com
++ sub.domain.com
++ 123.45.67.89
+```
+
+</Note>
+
+<Warning>
+**Important Notes**
+
+1. If you use subdomains, then you have to list them all.
+2. If you use CloudFlare or any other service that using Proxy approach and you want to whitelist your server IP Address, then just add the **real server IP address**.
+3. If you leave the authorised hosts field empty, then **you're telling us that you want to allow all domains and IP addresses to use the API Key**.
+
+</Warning>
