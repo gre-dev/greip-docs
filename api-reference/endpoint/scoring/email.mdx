@@ -86,6 +86,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "isValid": false,
     "isFree": false,
     "isRoleBased": true,
+    "isEducational": false,
     "isDisposable": false,
     "blacklisted": false,
     "email": "test@dangerous-domain.com",
@@ -136,6 +137,9 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="isRoleBased" type="boolean" required>
       Indicates whether the email address is a role-based email address. Role-based email addresses are those that are associated with a particular role or group, such as `admin`, `support`, `info`, etc.
+    </ResponseField>
+    <ResponseField name="isEducational" type="boolean" required>
+      Indicates whether the email address is an educational email address.
     </ResponseField>
     <ResponseField name="isValid" type="boolean" required>
       A boolean value that you can rely on to determine if the email address is 100% safe & valid or not.
