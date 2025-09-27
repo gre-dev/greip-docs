@@ -126,18 +126,22 @@
             ]
           },
           {
+            "group": "Integrations",
+            "pages": [
+              "knowledge-base/integrations/overview",
+              "knowledge-base/integrations/slack",
+              "knowledge-base/integrations/zapier",
+              "knowledge-base/integrations/ifttt",
+              "knowledge-base/integrations/make",
+              "knowledge-base/integrations/telegram",
+              "knowledge-base/integrations/n8n"
+            ]
+          },
+          {
             "group": "Affiliate Program",
             "pages": [
               "knowledge-base/affiliates-program/becoming-affiliate-partner",
               "knowledge-base/affiliates-program/payout-settings"
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "knowledge-base/integrations/slack",
-              "knowledge-base/integrations/zapier",
-              "knowledge-base/integrations/ifttt"
             ]
           }
         ]
@@ -255,6 +259,7 @@
       "linkedin": "https://www.linkedin.com/company/greip",
       "github": "https://github.com/Greipio",
       "website": "https://greip.io",
+      "x": "https://x.com/Greipio",
       "slack": "https://join.slack.com/t/greip-community/shared_invite/zt-2sxdyaaj8-418mMcVlekO6sNhKOAGWpg"
     }
   },

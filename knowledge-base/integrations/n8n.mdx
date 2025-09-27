@@ -1,0 +1,65 @@
+---
+title: "Integrate Greip with N8N"
+sidebarTitle: "N8N Integration"
+description: "Integrate Greip with N8N to automate workflows and connect with various services"
+icon: "circle-6"
+iconType: "duotone"
+---
+
+[N8N](https://n8n.io/) is an open-source workflow automation tool that allows you to connect various apps and services. Greip's N8N integration enables you to use Greip's powerful APIs within your N8N workflows.
+
+## Prerequisites
+
+Before you can integrate Greip with N8N, you need to have the following:
+
+- A Greip account with an active subscription
+- An N8N instance up and running
+
+## Installation
+
+To install the Greip Slack app, follow these steps:
+
+<Steps>
+  <Step title="Accessing Community Nodes">
+    From your N8N instance, go to the **'Settings'** page then click on the **'Community Nodes'** tab.
+  </Step>
+  <Step title="Installing the Greip Node">
+    From the top right corner, click on the **'Install'** button. Then, a new window will pop up where you can search for the Greip node.
+
+    In the **'Package Name'** field, type `n8n-nodes-greip` and click on the **'Install'** button.
+
+  </Step>
+  <Step title="Credential Setup">
+      Once installed, you will need to authenticate your Greip account in N8N. To do this, create a new workflow or open an existing workflow and add a Greip node. In the node settings, click on the **'Select Credential'** dropdown menu under the **'Greip API Key'** field then click **'Create new credential'**.
+      
+      A new window will pop up where you will need to enter your Greip [API key](/knowledge-base/account-management/obtaining-api-key). After entering your API key, click on the **'Save'** button.
+  </Step>
+
+</Steps>
+
+## Uninstallation
+
+To uninstall the Greip Slack app, follow these steps:
+
+<Steps>
+  <Step title="Accessing Community Nodes">
+    From your N8N instance, go to the **'Settings'** page then click on the
+    **'Community Nodes'** tab.
+  </Step>
+  <Step title="Uninstalling the Greip Node">
+    Locate the Greip node in the list of installed community nodes. Then, click
+    on the 3 dots on the right side of the Greip node and select **'Uninstall
+    package'** from the dropdown menu.
+  </Step>
+  <Step title="Confirmation">
+    A confirmation dialog will appear asking if you are sure you want to
+    uninstall the Greip node. Make sure you take a look at the list of workflows
+    that are using the Greip node before confirming the uninstallation. Then
+    click on the **'Confirm uninstall'** button to proceed with the
+    uninstallation.
+  </Step>
+</Steps>
+
+## Changelog
+
+To stay updated with the latest changes and improvements to the Greip N8N node, you can visit our [GitHub repository](https://github.com/Greipio/n8n-nodes-greip/blob/main/CHANGELOG.md).
