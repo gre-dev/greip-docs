@@ -64,20 +64,25 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 ```json Success
 {
   "data": {
-    "asn": "AS6167",
-    "name": "CELLCO-PART",
-    "country": "US",
-    "org": "Verizon Business",
-    "phone": "+1-800-900-0241",
-    "email": "swipper@verizon.com",
-    "domain": "verizon.net",
-    "status": null,
-    "created": "2006-05-30",
-    "type": null,
-    "registry": null
+    "asn": "AS9112",
+    "name": "POZMAN",
+    "country": "PL",
+    "org": "Institute of Bioorganic Chemistry Polish Academy of Science, Poznan Supercomputing and Networking Center",
+    "phone": "+48 61 8582010",
+    "email": null,
+    "domain": "poznan.pl",
+    "status": "ASSIGNED",
+    "created": "2004-04-17T11:47:57Z",
+    "type": "education",
+    "registry": "RIPE",
+    "prefixes": {
+      "ipv_4": ["150.254.0.0/16", "62.3.160.0/19"],
+      "ipv_6": ["2001:808::/35"],
+      "total": 3
+    }
   },
   "status": "success",
-  "executionTime": 4198
+  "executionTime": 0
 }
 ```
 
@@ -129,6 +134,19 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="registry" type="string" required>
       Registration information of the organization.
+    </ResponseField>
+    <ResponseField name="prefixes" type="object" required>
+      <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="ipv_4" type="array" required>
+          List of IPv4 prefixes associated with the organization.
+        </ResponseField>
+        <ResponseField name="ipv_6" type="array" required>
+          List of IPv6 prefixes associated with the organization.
+        </ResponseField>
+        <ResponseField name="total" type="integer" required>
+          Total number of prefixes associated with the organization.
+        </ResponseField>
+      </Expandable>
     </ResponseField>
   </Expandable>
 </ResponseField>
