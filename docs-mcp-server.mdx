@@ -1,0 +1,101 @@
+---
+title: "Documentation MCP Server"
+sidebarTitle: "Docs MCP Server"
+description: "Use Greip Documentation MCP Server to get started even faster using AI"
+icon: "microchip-ai"
+iconType: "duotone"
+---
+
+## Overview
+
+We provide a dedicated Documentation MCP (Model Connector Protocol) Server that allows you to seamlessly integrate Greip's extensive documentation into various AI chat clients. This enables you to access accurate and up-to-date information directly from Greip's docs while interacting with your preferred AI model.
+
+```plaintext MCP Server URL
+https://docs.greip.io/mcp
+```
+
+## Configuration
+
+To start using the Documentation MCP Server, you can follow the instructions below based on your preferences:
+
+<Tabs>
+  <Tab title="ChatGPT">
+    1. Sign in to [ChatGPT](https://chatgpt.com/)
+    2. Open **Connectors settings**
+    3. Enable **"**Developer Mode**"** in Advanced Settings
+    4. Create a **new connector**
+    5. Add the MCP server URL from above
+    6. Enable Greip Documentation in the chat window and start chatting!
+
+    <Note>Note: Custom connectors require specific ChatGPT account plans. [Check ChatGPT's documentation](https://platform.openai.com/docs/guides/developer-mode) for current availability.</Note>
+
+  </Tab>
+  <Tab title="Claude">
+    1. Sign in to [Claude](https://claude.ai/)
+    2. Open **Connector settings**
+    3. Select **“Add Custom Connector”**
+    4. Add the MCP server URL from above
+    5. Click **“Add”**
+    6. Enable Greip Documentation in the chat settings and start chatting!
+
+    <Note>Note: Custom connectors require specific Claude account plans. [Check Claude's documentation](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp) for current availability.</Note>
+
+  </Tab>
+  <Tab title="Cursor">
+    1. Open Cursor and navigate to **Settings → Cursor Settings**
+    2. Select the **MCP** tab
+    3. Click **Add new global MCP server**
+    4. Paste the configuration below and save
+
+    ```json MCP server config
+    {
+        "mcpServers": {
+            "pipedream": {
+                "url": "https://docs.greip.io/mcp"
+            }
+        }
+    }
+    ```
+
+  </Tab>
+  <Tab title="VS Code">
+    1. Open **VS Code**.
+    2. Run the Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+    3. Select **MCP: Add Server**
+    4. Choose workspace or user settings
+    5. Paste the configuration below
+
+    [View VS Code's MCP server documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_add-an-mcp-server)
+
+    ```json MCP server config
+    {
+        "mcpServers": {
+            "pipedream": {
+            "url": "https://docs.greip.io/mcp"
+            }
+        }
+    }
+    ```
+
+  </Tab>
+  <Tab title="Le Chat">
+    1. Open the [Connectors Settings](https://chat.mistral.ai/connections)
+    2. Click **Add Connector**
+    3. Paste the MCP server URL from above
+
+  </Tab>
+  <Tab title="Other">
+    For any other MCP client, use the configuration below:
+
+    ```json MCP server config
+    {
+        "mcpServers": {
+            "pipedream": {
+                "url": "https://docs.greip.io/mcp"
+            }
+        }
+    }
+    ```
+
+  </Tab>
+</Tabs>
