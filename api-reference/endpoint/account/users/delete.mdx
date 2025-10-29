@@ -4,6 +4,8 @@ description: "In some cases, such as data protection regulations, businesses tha
 api: "DELETE /account/users/delete"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 <Warning>
   **This action cannot be undone**, all deleted data will be deleted immediately
   from our system.
@@ -20,7 +22,10 @@ api: "DELETE /account/users/delete"
   data you want to delete.
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Free and above" color="green" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -45,7 +50,8 @@ api: "DELETE /account/users/delete"
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

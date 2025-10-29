@@ -4,6 +4,8 @@ description: "This method enables you to validate International Bank Account Num
 api: "GET /lookup/iban"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 ### Overview
 
 The IIN (Issuer Identification Number), also known as the BIN (Bank Identification Number), is the first 6 digits of a debit or credit card number. These unique numbers are used to identify the issuing entity, such as the bank or financial institution that issued the card.
@@ -80,7 +82,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Premium and above" color="purple" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -125,7 +130,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

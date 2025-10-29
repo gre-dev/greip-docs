@@ -4,6 +4,8 @@ description: "This API allows you to retrieve detailed geolocation information f
 api: "GET /geoip"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 ### Query Parameters
 
 <ParamField
@@ -90,7 +92,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Free and above" color="green" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -210,7 +215,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

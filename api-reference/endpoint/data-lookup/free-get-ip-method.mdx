@@ -5,6 +5,8 @@ icon: "heart"
 iconType: "duotone"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 **Usage example**
 
 ```
@@ -93,7 +95,10 @@ HttpResponse<String> response = Unirest.get("https://greipapi.com/ip")
 
 </RequestExample>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="No account needed" color="green" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -104,4 +109,5 @@ HttpResponse<String> response = Unirest.get("https://greipapi.com/ip")
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>

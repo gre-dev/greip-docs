@@ -4,6 +4,8 @@ description: "This method serves as an additional layer of protection in your sy
 api: "GET /scoring/phone"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 ### Query Parameters
 
 <ParamField
@@ -86,7 +88,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Premium and above" color="purple" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -113,7 +118,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

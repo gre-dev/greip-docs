@@ -4,6 +4,8 @@ description: "Prevent financial losses and protect your business by deploying AI
 api: "POST /scoring/payment"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 ## Overview
 
 Detecting and preventing fraudulent payments is a critical task for any business that accepts online payments. This AI-based module is designed to help you do that by analysing a range of data points related to each transaction.
@@ -315,7 +317,10 @@ For more information please refer to [User Identifier](/options/user-identifier)
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Premium and above" color="purple" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -368,7 +373,8 @@ For more information please refer to [User Identifier](/options/user-identifier)
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

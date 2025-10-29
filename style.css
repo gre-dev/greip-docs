@@ -1,0 +1,19 @@
+.panel {
+  overflow: visible;
+}
+
+.prose
+  :where(.custom-link:hover):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ),
+.custom-link {
+  display: inline-block;
+  flex: unset;
+  width: auto;
+  border: unset !important;
+  text-decoration: underline;
+}
+
+.no-wrap-words {
+  white-space: nowrap;
+}

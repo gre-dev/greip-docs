@@ -4,6 +4,8 @@ description: "This method provides an additional layer of validation for your sy
 api: "GET /scoring/email"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 import DomainFields from "/snippets/domain-fields.mdx";
 
 ### Query Parameters
@@ -76,7 +78,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Premium and above" color="purple" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -117,7 +122,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 

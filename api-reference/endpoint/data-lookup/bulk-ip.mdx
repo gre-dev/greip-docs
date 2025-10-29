@@ -4,6 +4,8 @@ description: "This API enables you to retrieve information for multiple IP addre
 api: "GET /lookup/ip/bulk"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 <Warning>
   You can lookup upto 10 IP addresses using this method. Otherwise, you will get
   an error response (Code: 118).
@@ -95,3 +97,7 @@ Expected values: any name that can be used as a function name in Javascript, e.g
 For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
+
+<Panel>
+  <Availability plan="Standard and above" color="blue" />
+</Panel>

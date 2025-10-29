@@ -4,6 +4,8 @@ description: "This method allows you to retrieve detailed information about a do
 api: "GET /lookup/domain"
 ---
 
+import { Availability } from "/snippets/Availability.jsx";
+
 import DomainFields from "/snippets/domain-fields.mdx";
 
 <Warning>
@@ -70,7 +72,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 
 </ParamField>
 
-<ResponseExample>
+<Panel>
+  <Availability plan="Standard and above" color="blue" />
+
+  <ResponseExample>
 
 ```json Success
 {
@@ -99,7 +104,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 }
 ```
 
-</ResponseExample>
+  </ResponseExample>
+</Panel>
 
 ### Response properties
 
