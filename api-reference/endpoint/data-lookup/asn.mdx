@@ -81,8 +81,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     "type": "education",
     "registry": "RIPE",
     "prefixes": {
-      "ipv_4": ["150.254.0.0/16", "62.3.160.0/19"],
-      "ipv_6": ["2001:808::/35"],
+      "ipv4": ["150.254.0.0/16", "62.3.160.0/19"],
+      "ipv6": ["2001:808::/35"],
       "total": 3
     }
   },
@@ -143,10 +143,10 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
     </ResponseField>
     <ResponseField name="prefixes" type="object" required>
       <Expandable title="properties" defaultOpen={true}>
-        <ResponseField name="ipv_4" type="array" required>
+        <ResponseField name="ipv4" type="array" required>
           List of IPv4 prefixes associated with the organization.
         </ResponseField>
-        <ResponseField name="ipv_6" type="array" required>
+        <ResponseField name="ipv6" type="array" required>
           List of IPv6 prefixes associated with the organization.
         </ResponseField>
         <ResponseField name="total" type="integer" required>
