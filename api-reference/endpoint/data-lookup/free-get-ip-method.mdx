@@ -6,6 +6,7 @@ iconType: "duotone"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 
 **Usage example**
 
@@ -96,6 +97,8 @@ HttpResponse<String> response = Unirest.get("https://greipapi.com/ip")
 </RequestExample>
 
 <Panel>
+  <MCPCallout />
+  
   <Availability plan="No account needed" color="green" />
 
   <ResponseExample>

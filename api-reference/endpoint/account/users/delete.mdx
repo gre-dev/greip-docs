@@ -5,6 +5,7 @@ api: "DELETE /account/users/delete"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 
 <Warning>
   **This action cannot be undone**, all deleted data will be deleted immediately
@@ -23,6 +24,8 @@ import { Availability } from "/snippets/Availability.jsx";
 </ParamField>
 
 <Panel>
+  <MCPCallout />
+  
   <Availability plan="Free and above" color="green" />
 
   <ResponseExample>

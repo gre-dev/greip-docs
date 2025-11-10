@@ -5,6 +5,7 @@ api: "GET /lookup/ip/bulk"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 
 <Warning>
   You can lookup upto 10 IP addresses using this method. Otherwise, you will get
@@ -99,5 +100,7 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 </ParamField>
 
 <Panel>
+  <MCPCallout />
+
   <Availability plan="Standard and above" color="blue" />
 </Panel>

@@ -5,7 +5,7 @@ api: "GET /lookup/domain"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
-
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 import DomainFields from "/snippets/domain-fields.mdx";
 
 <Warning>
@@ -73,6 +73,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 </ParamField>
 
 <Panel>
+  <MCPCallout />
+  
   <Availability plan="Standard and above" color="blue" />
 
   <ResponseExample>

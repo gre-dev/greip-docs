@@ -5,6 +5,7 @@ api: "GET /lookup/iban"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 
 ### Overview
 
@@ -83,6 +84,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 </ParamField>
 
 <Panel>
+  <MCPCallout />
+  
   <Availability plan="Premium and above" color="purple" />
 
   <ResponseExample>

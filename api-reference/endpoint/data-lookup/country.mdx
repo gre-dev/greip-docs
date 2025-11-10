@@ -5,6 +5,7 @@ api: "GET /lookup/country"
 ---
 
 import { Availability } from "/snippets/Availability.jsx";
+import { MCPCallout } from "/snippets/MCPCallout.jsx";
 
 ### Query Parameters
 
@@ -75,6 +76,8 @@ For more information please refer to [JSONP Callback](/options/jsonp-callback).
 </ParamField>
 
 <Panel>
+  <MCPCallout />
+  
   <Availability plan="Free and above" color="green" />
 
   <ResponseExample>
